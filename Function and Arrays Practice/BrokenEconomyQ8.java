@@ -12,8 +12,8 @@ public class BrokenEconomyQ8 {
 
     int left = 0;
     int right = arr.length - 1;
-    int ceil = 0;
-    int floor = 0;
+    int ceil = -1;
+    int floor = -1;
     while(left <= right){
       int mid = (left + right) / 2;
       if (data < arr[mid]){
