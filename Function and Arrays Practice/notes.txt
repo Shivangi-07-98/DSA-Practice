@@ -1,9 +1,3 @@
-broken economy
-inverse of an array
-rotate an array
-subarray
-subsets
-
 Given an array arr of n elements that is first strictly increasing and then maybe strictly decreasing, find the maximum element in the array.
 Input: array[]= {5, 10, 20, 15}
 Output: 20
