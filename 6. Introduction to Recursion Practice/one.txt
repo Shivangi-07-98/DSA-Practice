@@ -1,0 +1,1 @@
+A function calls itself directly or indirectly to solve a problem. 
