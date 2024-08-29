@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class PowerlogarithmicQ {
-
+public class PowerlogarithmicQ6 {
     public static void main(String[] args) throws Exception {
         // write your code here
         Scanner scn = new Scanner(System.in);
@@ -13,15 +12,20 @@ public class PowerlogarithmicQ {
     }
 
     public static int power(int x, int n) {
+
         if (n == 0) {
             return 1;
         }
+
         int a = power(x, n / 2);
-        int b = a * a;
+        int ans = a * a;
+
         if (n % 2 == 1) {
-            b = b * x;
+            ans = a * a * x;
         }
-        return b;
+        
+        return ans;
+
     }
 
 }

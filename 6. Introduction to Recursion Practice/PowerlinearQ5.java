@@ -14,9 +14,16 @@ public class PowerlinearQ5 {
 
     public static int power(int x, int n){
 
-        if(n == 1){
-            return x;
+        // it is correct
+        if(n == 0){
+            return 1;
         }
+
+        // if 2 raise to the power 0 is asked it is not handling that so its wrong
+        // if(n == 1){
+        //     return 2;
+        // }
+
         int a = power(x, n-1);
         int ans = x * a;
 
