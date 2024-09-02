@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class PrintZigzagQ {
-
+public class PrintZigzagQ7 {
     public static void main(String[] args) throws Exception {
         // write your code here
         Scanner scn = new Scanner(System.in);
