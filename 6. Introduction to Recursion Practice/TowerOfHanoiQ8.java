@@ -4,10 +4,10 @@ public class TowerOfHanoiQ8 {
     public static void main(String[] args) throws Exception {
         // write your code here
         Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        int n1 = scn.nextInt();
-        int n2 = scn.nextInt();
-        int n3 = scn.nextInt();
+        int n = scn.nextInt(); //3
+        int n1 = scn.nextInt(); // 10 A
+        int n2 = scn.nextInt(); // 11 B
+        int n3 = scn.nextInt(); // 12 C
         toh(n, n1, n2, n3);
     }
 
