@@ -1,0 +1,9 @@
+1. print prime
+2. print fibonacci
+3. print digits from left to right
+4. inverse a number
+5. rotate a number
+6. prime factor of a number
+7. pythagorean triplet
+8. digit frequency
+9.
