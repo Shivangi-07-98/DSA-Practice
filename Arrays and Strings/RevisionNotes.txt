@@ -33,4 +33,6 @@ The rule: If no factors found ≤ √n, the number is prime!
 Arrays
 
 int [] arr = new int [5];
+System.out.print("*\t");
+System.out.print("\t");
 

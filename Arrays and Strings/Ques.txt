@@ -8,4 +8,6 @@
 8. digit frequency
 9. span of an array
 10. find element in an array
-11. 
+11. bar chart, inverted bar chart
+12. reverse an array
+13. 
