@@ -8,6 +8,11 @@
 8. digit frequency
 9. span of an array
 10. find element in an array
-11. bar chart, inverted bar chart
-12. reverse an array
-13. 
+11. bar chart
+12. inverted bar chart
+13. reverse an array
+14. binary search ceil floor
+15. subarray
+16. rotate an array
+17. subsets of array
+18. 
