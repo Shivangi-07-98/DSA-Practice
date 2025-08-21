@@ -6,4 +6,6 @@
 6. prime factor of a number
 7. pythagorean triplet
 8. digit frequency
-9.
+9. span of an array
+10. find element in an array
+11. 
