@@ -14,5 +14,6 @@
 14. binary search ceil floor
 15. subarray
 16. rotate an array
-17. subsets of array
-18. 
+17. is substring string palindrome
+18. string compression
+19. 
