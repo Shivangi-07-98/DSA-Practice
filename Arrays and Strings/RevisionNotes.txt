@@ -36,3 +36,4 @@ int [] arr = new int [5];
 System.out.print("*\t");
 System.out.print("\t");
 
+int pow = (1 << n); //2^n
