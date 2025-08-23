@@ -17,6 +17,8 @@ public class IntroStrings2 {
     str += " very";
     System.out.println(str);
 
+    //------------------------------------
+
     String s = "hello";
     char ch = s.charAt(0);
     System.out.println(ch);
