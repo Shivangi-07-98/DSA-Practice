@@ -16,4 +16,6 @@
 16. rotate an array
 17. is substring string palindrome
 18. string compression
-19. 
+19. toggle case
+20. string with difference of characters
+21. 
