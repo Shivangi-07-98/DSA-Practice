@@ -46,4 +46,3 @@ System.out.println(s1.equals(s3)); // true
 equals first checks the stack if not equal than checks the content
 == just checks on stack and not the content
 
-
