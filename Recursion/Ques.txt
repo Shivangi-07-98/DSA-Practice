@@ -5,4 +5,5 @@
 5. tower of hanoi
 6. display array
 7. display array in reverse
-8. 
+8. max of an array
+9. 
