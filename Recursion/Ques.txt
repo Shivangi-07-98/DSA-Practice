@@ -1,4 +1,5 @@
 1. factorial
 2. power linear
 3. power logarithmic
-4. 
+4. print zigzag
+5. 
