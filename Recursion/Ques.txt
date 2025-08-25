@@ -2,4 +2,5 @@
 2. power linear
 3. power logarithmic
 4. print zigzag
-5. 
+5. tower of hanoi
+6. 
