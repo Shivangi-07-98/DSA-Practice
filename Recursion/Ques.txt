@@ -3,4 +3,6 @@
 3. power logarithmic
 4. print zigzag
 5. tower of hanoi
-6. 
+6. display array
+7. display array in reverse
+8. 
