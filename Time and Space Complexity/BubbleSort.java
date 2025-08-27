@@ -1,47 +1,31 @@
 // O(n^2)
 import java.io.*;
 import java.util.*;
-public class BubbleSort{
-    public static void main (String[]args) throws Exception{
 
-        Scanner scn = new Scanner (System.in);
-        int n = scn.nextInt();
-        int [] arr = new int [n];
-        for(int i = 0; i < n; i++){
-            arr[i] = scn.nextInt();
-        }
-        bubbleSort(arr);
-        print(arr);
-    }
-    
-    public static void bubbleSort (int [] arr){
-        for(int i = 1; i < arr.length; i++){
-            for(int j = 0; j <= arr.length-1-i; j++){
-                if (isSmaller(arr, j+1, j) == true){
-                    swap(arr, j+1, j);
-                }
-            }
-        }
+public class BubbleSort {
+  public static void main(String[] args) throws Exception {
+
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt(); // 5
+    int[] arr = new int[n];
+    for (int i = 0; i < arr.length; i++) {
+      arr[i] = scn.nextInt();
     }
 
-    public static boolean isSmaller (int [] arr, int b, int a){
-        if (arr[b] < arr[a]){
-            return true;
+    // Bubble Sort: Compare next element and swap, largest element reaches the end of the array
+    for (int i = 1; i < n; i++) { // 1, 2, 3, 4
+      for (int j = 0; j <= n - 1 - i; j++) { // 3, 2, 1, 0
+        if (arr[j + 1] < arr[j]) {
+          int temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
         }
-        else {
-            return false;
-        }
+      }
     }
 
-    public static void swap (int [] arr, int b, int a){
-        int temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
+    // Print sorted array
+    for (int i = 0; i < arr.length; i++) {
+      System.out.print(arr[i] + " ");
     }
-
-    public static void print(int [] arr){
-        for(int i = 0; i < arr.length; i++){
-            System.out.print(arr[i] + " ");
-        }
-    }
+  }
 }
