@@ -2,3 +2,5 @@
 2. selection sort
 3. 
 4. fib
+5. polynomial
+6. 
