@@ -3,4 +3,5 @@
 3. 
 4. fib
 5. polynomial
-6. 
+6. hfc using string and array
+7. 
