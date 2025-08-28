@@ -10,8 +10,7 @@ O(logn) binary search
 Bubble Sort O(n2) = 
 Bubble Sort: Compare next element and swap, largest element reaches the end of the array
 last wale sare sort hote jaa rhe (bade saare piche bhej rhe)
-for 0-4 comparing i with i+1
-0-3 
-0-2
-0-1
-0
+
+Selection Sort O(n2) = 
+Selection Sort: Find smallest element and put it at start by swapping, smallest element reaches the start of the array
+aage wale saare sort hote jaa rhe (chhote saare aage bhej rhe)
