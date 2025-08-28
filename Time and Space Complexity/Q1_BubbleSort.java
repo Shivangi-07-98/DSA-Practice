@@ -14,8 +14,8 @@ public class Q1_BubbleSort {
 
     // Bubble Sort: Compare next element and swap, largest element reaches the end of the array
     for (int i = 1; i < n; i++) { // 1, 2, 3, 4
-      for (int j = 0; j <= n - 1 - i; j++) { // 3, 2, 1, 0
-        // 1(3) 2(2) 3(1) 4(0)
+      for (int j = 0; j <= n - 1 - i; j++) { // 0-3, 0-2, 0-1, 0-0
+        // 1(0-3) 2(0-2) 3(0-1) 4(0-0)
         if (arr[j + 1] < arr[j]) {
           int temp = arr[j];
           arr[j] = arr[j + 1];
