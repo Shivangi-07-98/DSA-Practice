@@ -4,4 +4,5 @@
 4. fib
 5. polynomial
 6. hfc using string and array
-7. 
+7. sieve of eratosthenes
+8. 
