@@ -5,4 +5,5 @@
 5. polynomial
 6. hfc using string and array
 7. sieve of eratosthenes (imp) 
-8. 
+8. merge two sorted array
+9. 
