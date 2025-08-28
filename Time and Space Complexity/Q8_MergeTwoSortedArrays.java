@@ -6,13 +6,13 @@ public class Q8_MergeTwoSortedArrays {
 
     int a = scn.nextInt();
     int[] one = new int[a];
-    for (int i = 0; i < a; i++) {
+    for (int i = 0; i < one.length; i++) {
       one[i] = scn.nextInt();
     }
 
     int b = scn.nextInt();
     int[] two = new int[b];
-    for (int i = 0; i < b; i++) {
+    for (int i = 0; i < two.length; i++) {
       two[i] = scn.nextInt();
     }
 
@@ -22,7 +22,8 @@ public class Q8_MergeTwoSortedArrays {
     int j = 0;
     int k = 0;
 
-    while (i < one.length && j < two.length) {
+    // loop breaks when any array reaches length and no comparison is needed then
+    while (i < one.length && j < two.length) { 
       if (one[i] < two[j]) {
         ans[k] = one[i];
         i++;
