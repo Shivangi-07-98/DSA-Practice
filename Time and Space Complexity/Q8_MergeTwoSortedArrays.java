@@ -1,4 +1,4 @@
-// O(nlogn)
+// O(n) - linear time for merging sorted arrays
 import java.util.*;
 public class Q8_MergeTwoSortedArrays {
   public static void main(String[] args) {
