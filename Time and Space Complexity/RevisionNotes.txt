@@ -20,4 +20,6 @@ aage wale saare sort hote jaa rhe (chhote saare aage bhej rhe)
 import java.util.Arrays;
 Arrays.sort(arr); // nlogn
 
+target sum pair - meet in the middle
+
 

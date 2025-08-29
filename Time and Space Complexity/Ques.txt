@@ -7,4 +7,8 @@
 7. sieve of eratosthenes (imp) 
 8. merge two sorted array
 9. check duplicate
-10. 
+10. target sum pair
+11. target sum pair with binary search
+12. target sum triplet
+13. merge sort
+14. 
