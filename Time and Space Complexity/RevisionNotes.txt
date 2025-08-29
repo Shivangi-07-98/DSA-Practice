@@ -14,3 +14,10 @@ last wale sare sort hote jaa rhe (bade saare piche bhej rhe)
 Selection Sort O(n2) = 
 Selection Sort: Find smallest element and put it at start by swapping, smallest element reaches the start of the array
 aage wale saare sort hote jaa rhe (chhote saare aage bhej rhe)
+
+-----------------------------------------------
+
+import java.util.Arrays;
+Arrays.sort(arr); // nlogn
+
+
