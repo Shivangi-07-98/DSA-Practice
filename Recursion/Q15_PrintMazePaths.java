@@ -16,6 +16,7 @@ public class Q15_PrintMazePaths {
       return;
     } else if (sr == dr && sc == dc) {
       cont.add(bres);
+      return; // Add this return statement
     }
 
     gmp(sr, sc + 1, dr, dc, bres + "h", cont);

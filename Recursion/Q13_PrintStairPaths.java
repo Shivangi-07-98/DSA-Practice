@@ -13,6 +13,7 @@ public class Q13_PrintStairPaths {
     if (n == 0) {
       // System.out.print(bres + ",");
       cont.add(bres);
+      return; // Add this return statement
     } else if (n < 0) {
       return;
     }
