@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Q14_GetMazePaths {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
@@ -10,25 +11,24 @@ public class Q14_GetMazePaths {
   }
 
   public static ArrayList<String> gmp(int sr, int sc, int dr, int dc) {
-    if(sr > dr || sc > dc){
-      ArrayList <String> bres = new ArrayList<>();
+    if (sr > dr || sc > dc) {
+      ArrayList<String> bres = new ArrayList<>();
       return bres;
-    }
-    else if(sr == dr && sc == dc){
-      ArrayList <String> bres = new ArrayList<>();
+    } else if (sr == dr && sc == dc) {
+      ArrayList<String> bres = new ArrayList<>();
       bres.add("");
       return bres;
     }
 
-    ArrayList <String> hpaths = gmp(sr, sc + 1, dr, dc);
-    ArrayList <String> vpaths = gmp(sr + 1, sc, dr, dc);
-    ArrayList <String> ans = new ArrayList<>();
+    ArrayList<String> hpaths = gmp(sr, sc + 1, dr, dc);
+    ArrayList<String> vpaths = gmp(sr + 1, sc, dr, dc);
+    ArrayList<String> ans = new ArrayList<>();
 
-    for(String rres: hpaths){
+    for (String rres : hpaths) {
       ans.add("h" + rres);
     }
 
-    for(String rres: vpaths){
+    for (String rres : vpaths) {
       ans.add("v" + rres);
     }
 

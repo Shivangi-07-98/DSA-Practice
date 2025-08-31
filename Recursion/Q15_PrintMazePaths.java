@@ -1,4 +1,5 @@
-import java.util.*; 
+import java.util.*;
+
 public class Q15_PrintMazePaths {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
@@ -11,16 +12,14 @@ public class Q15_PrintMazePaths {
   }
 
   public static void gmp(int sr, int sc, int dr, int dc, String bres, ArrayList<String> cont) {
-    if(sr > dr || sc > dc){
+    if (sr > dr || sc > dc) {
       return;
-    }
-    else if(sr == dr && sc == dc){
+    } else if (sr == dr && sc == dc) {
       cont.add(bres);
     }
 
     gmp(sr, sc + 1, dr, dc, bres + "h", cont);
     gmp(sr + 1, sc, dr, dc, bres + "v", cont);
-    
   }
 
 }
