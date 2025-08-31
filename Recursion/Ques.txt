@@ -6,4 +6,7 @@
 6. display array
 7. display array in reverse
 8. max of an array
-9. 
+9. get subsequence
+10. print subsequence
+11. print subsequence with arraylist
+12. 
