@@ -10,7 +10,7 @@ public class Q9_GetSubsequence {
   }
 
   public static ArrayList<String> gss(String input) {
-    if (input.length() == 0) {
+    if (input.length() == 0) { // yha bna string ka array
       ArrayList<String> newarr = new ArrayList<>();
       newarr.add("");
       return newarr;
@@ -35,8 +35,7 @@ public class Q9_GetSubsequence {
 }
 // 2^n = 2^3 = 8
 // c = _ , c
-// bc = _ _ , _ c , b _ , b c (c mai 2 loop chlega ek nhi aane ka ek aane ka)
+// bc = _ _ , _ c , b _ , b c (c mai 2 loop chlega ek nhi aane ka, ek aane ka)
 // abc = _ _ _ , _ _ c , _ b _ , _ b c
-// a _ _ , a _ c , a b _ , a b c (bc mai 2 loop chlega ek nhi aane ka ek aane
-// ka)
-//
+//       a _ _ , a _ c , a b _ , a b c (bc mai 2 loop chlega ek nhi aane ka, ek aane ka)
+
