@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class GetMazePathsWithJumpsQ89 {
+public class Q18_GetMazePathsWithJumps {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int row = scn.nextInt();
