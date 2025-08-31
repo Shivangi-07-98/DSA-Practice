@@ -1,5 +1,5 @@
 import java.util.*;
-public class GetStairPathsQ87 {
+public class Q12_GetStairPaths {
   public static void main (String [] args){
     Scanner scn = new Scanner(System.in);
     int n = scn.nextInt();

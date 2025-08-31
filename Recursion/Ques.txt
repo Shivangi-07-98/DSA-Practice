@@ -9,4 +9,6 @@
 9. get subsequence
 10. print subsequence
 11. print subsequence with arraylist
-12. 
+12. get stair paths
+13. print stair paths
+14. 
