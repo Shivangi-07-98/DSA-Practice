@@ -1,5 +1,5 @@
 import java.util.*;
-public class GetKpcQ86 {
+public class Q16_GetKpc {
    public static void main (String [] args){
     Scanner scn = new Scanner(System.in);
     String n = scn.nextLine(); // input in numbers eg- 96

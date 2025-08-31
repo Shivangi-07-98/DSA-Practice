@@ -1,5 +1,5 @@
 import java.util.*;
-public class PrintKpcQ91 {
+public class Q17_PrintKpc {
    public static void main (String [] args){
     Scanner scn = new Scanner(System.in);
     String n = scn.nextLine(); // input in numbers eg- 96

@@ -1,5 +1,5 @@
 import java.util.*;
-public class GetMazePathsQ88 {
+public class Q14_GetMazePaths {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int r = scn.nextInt(); // 3

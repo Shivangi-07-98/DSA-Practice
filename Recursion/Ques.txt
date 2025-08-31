@@ -11,4 +11,8 @@
 11. print subsequence with arraylist
 12. get stair paths
 13. print stair paths
-14. 
+14. get maze paths
+15. print maze paths
+16. get kpc
+17. print kpc
+18. 

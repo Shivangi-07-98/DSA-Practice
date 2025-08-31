@@ -1,5 +1,5 @@
 import java.util.*; 
-public class PrintMazePathsQ93 {
+public class Q15_PrintMazePaths {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int r = scn.nextInt(); // 3
