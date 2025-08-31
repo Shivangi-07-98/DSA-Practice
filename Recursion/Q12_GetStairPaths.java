@@ -1,9 +1,9 @@
 import java.util.*;
-public class Q12_GetStairPaths {
+public class Q12_GetStairPaths{
   public static void main (String [] args){
     Scanner scn = new Scanner(System.in);
-    int n = scn.nextInt();
-    ArrayList <String> ans = gsp(n); // 3
+    int n = scn.nextInt(); // 3
+    ArrayList <String> ans = gsp(n);
     System.out.println(ans);
   }
 
@@ -38,3 +38,5 @@ public class Q12_GetStairPaths {
   }
   
 }
+// jump size 1, 2, 3
+// for eg- for 3 stairs i can move 111 12 21 3 and fill this in arraylist of strings and return
