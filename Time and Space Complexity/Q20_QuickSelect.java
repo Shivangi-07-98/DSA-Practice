@@ -1,5 +1,12 @@
+// O(n)
+// in an unsorted array in O(n) give kth smallest number
+// imp remember last element ko pivot maankar partition kar rhe, fir pivot last swap hota hai and i and j dono badhte hai toh pivot j-1 hoga
+// logic ye hai ki ek array mai swap krna hai and k jo ki index wise k-1 hoga usko match krenge 
+// partition mai jis element ko pivot maankar partition krte logic wise wo correct place par hai kuki uski left chhote ya barabar hai and right bade hai
+// bas aise hi krte rehna pivot ka index k se match krana and boom it is the answer
+
 import java.util.*;
-public class QuickSelectQ {
+public class Q20_QuickSelect {
   public static void main (String[] args){
     Scanner scn = new Scanner(System.in);
     int n = scn.nextInt(); // 8
@@ -30,7 +37,6 @@ public class QuickSelectQ {
 
   // j-1 is where the pivot is and is on correct spot
   public static int partition(int [] arr, int pivot, int lo, int hi){
-    // System.out.println("pivot -> " + pivot);
     int i = lo, j = lo;
     while(i <= hi){
       if(arr[i] <= pivot){
@@ -42,7 +48,10 @@ public class QuickSelectQ {
         i++;
       }
     }
-    // System.out.println("pivot index -> " + (j - 1));
+    // j is first of the larger than pivot element
+    // pivot lives at j-1
+    // left to pivot is all small or equal
+    // right to pivot is all larger
     return (j - 1);
   }
 

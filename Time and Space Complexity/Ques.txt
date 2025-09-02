@@ -16,5 +16,7 @@
 16. move 0's to front
 17. partition an array
 18. sort 012 (imp)
-19. 
-20. 
+19. sort lo hi
+20. quick select
+21. count sort
+22. 

@@ -11,8 +11,8 @@ public class Q17_PartitionAnArray {
 
     // move less than equal to pivot in front
     int pivot = scn.nextInt(); // 5
-    // PartitioningAnArray(arr, pivot); // 4 2 6 11 8 9
-    PreserveOrderPartitioningAnArray(arr, pivot); // 4 2 11 6 8 9
+    PartitioningAnArray(arr, pivot); // 4 2 6 11 8 9
+    // PreserveOrderPartitioningAnArray(arr, pivot); // 4 2 11 6 8 9
 
     for (int i = 0; i < arr.length; i++) {
       System.out.print(arr[i] + " ");
