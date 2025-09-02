@@ -1,17 +1,16 @@
 import java.util.*;
-
 public class Q18_GetMazePathsWithJumps {
+
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int row = scn.nextInt();
     int col = scn.nextInt();
     ArrayList<String> ans = pmpwj(1, 1, row, col);
-    ;
     System.out.println(ans);
   }
 
   public static ArrayList<String> pmpwj(int sr, int sc, int dr, int dc) {
-    if (sc == dc && sr == dr) {
+    if (sr == dr && sc == dc) {
       ArrayList<String> bres = new ArrayList<>();
       bres.add("");
       return bres;
@@ -41,6 +40,6 @@ public class Q18_GetMazePathsWithJumps {
     }
 
     return ans;
-
   }
+
 }
