@@ -15,4 +15,6 @@
 15. move 0's to end
 16. move 0's to front
 17. partition an array
-18. 
+18. sort 012 (imp)
+19. 
+20. 
