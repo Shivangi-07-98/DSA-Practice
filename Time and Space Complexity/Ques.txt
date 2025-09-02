@@ -12,4 +12,6 @@
 12. target sum triplet
 13. merge sort
 14. sort 01
-15. 
+15. move 0's to end
+16. move 0's to front
+17. 
