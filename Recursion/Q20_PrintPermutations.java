@@ -1,5 +1,5 @@
 import java.util.*; 
-public class PrintPermutationsQ95 {
+public class Q20_PrintPermutations {
   public static void main (String [] args){
     Scanner scn = new Scanner(System.in);
     String str = scn.nextLine(); // abc

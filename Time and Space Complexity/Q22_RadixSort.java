@@ -1,6 +1,6 @@
 import java.util.*; // String Scanner System nextInt
 
-public class RadixSortQ {
+public class Q22_RadixSort {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int n = scn.nextInt(); // 7
