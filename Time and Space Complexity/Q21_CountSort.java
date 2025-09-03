@@ -1,5 +1,12 @@
+// in array find min and max and find its range (max-min)+1 = (7-2)+1 = 5+1 = 6
+// min max range
+// make 6 size freq array to store freq using range (to store freq of array elements minus min)
+// prefix sum array
+// answer array same as original array
+
 import java.util.*;
 public class Q21_CountSort {
+  
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int n = scn.nextInt(); // 13
@@ -12,7 +19,6 @@ public class Q21_CountSort {
     int max = scn.nextInt(); // 7
     countSort(arr, min, max);
     print(arr);
-
   }
 
   public static void countSort(int[] arr, int min, int max) {
@@ -43,7 +49,6 @@ public class Q21_CountSort {
     for (int i = 0; i < ans.length; i++) {
       arr[i] = ans[i];
     }
-
   }
 
   public static void print(int[] arr) {
