@@ -1,5 +1,6 @@
 // O( n*rt(n) )
 import java.util.*;
+
 public class PrintAllPrimes {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
@@ -16,6 +17,7 @@ public class PrintAllPrimes {
         System.out.print(i + " ");
       }
     }
-
+    
   }
+
 }
