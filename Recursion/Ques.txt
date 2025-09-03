@@ -17,4 +17,5 @@
 17. print kpc
 18. get maze paths with jumps
 19. print maze paths with jumps
-20. 
+20. print permutations
+21. 
