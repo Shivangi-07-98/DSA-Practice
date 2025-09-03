@@ -19,4 +19,7 @@
 19. sort lo hi
 20. quick select
 21. count sort
-22. 
+22. radix sort
+23. sort dates
+24. quick sort
+25. 
