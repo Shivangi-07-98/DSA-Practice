@@ -1,3 +1,4 @@
+// 3n + range = n + range
 // in array find min and max and find its range (max-min)+1 = (7-2)+1 = 5+1 = 6
 // min max range
 // make 6 size freq array to store freq using range (to store freq of array elements minus min)
@@ -26,18 +27,18 @@ public class Q21_CountSort {
     int[] farr = new int[range];
     int[] ans = new int[arr.length];
 
-    // collecting the frequencies
+    // collecting the frequencies O(n)
     for (int i = 0; i < arr.length; i++) {
       int val = arr[i];
       farr[val - min]++;
     }
 
-    // convert freq to prefix sum array psa
+    // convert freq to prefix sum array psa O(range)
     for (int i = 1; i < farr.length; i++) {
       farr[i] = farr[i] + farr[i - 1];
     }
 
-    // fill the ans
+    // fill the ans O(n)
     for (int i = arr.length - 1; i >= 0; i--) {
       int val = arr[i];
       int pos = farr[val - min];
@@ -45,7 +46,7 @@ public class Q21_CountSort {
       farr[val - min]--;
     }
 
-    // fill the original array
+    // fill the original array O(n)
     for (int i = 0; i < ans.length; i++) {
       arr[i] = ans[i];
     }
