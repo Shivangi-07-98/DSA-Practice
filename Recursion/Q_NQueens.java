@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class NQueensQ99 {
+public class Q_NQueens {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int n = scn.nextInt();
@@ -54,4 +54,3 @@ public class NQueensQ99 {
   }
 
 }
-

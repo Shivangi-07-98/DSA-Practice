@@ -18,4 +18,5 @@
 18. get maze paths with jumps
 19. print maze paths with jumps
 20. print permutations
-21. 
+21. print encodings
+22. 
