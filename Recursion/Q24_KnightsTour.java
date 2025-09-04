@@ -1,5 +1,5 @@
 import java.util.*;
-public class KnightsTourQ100 {
+public class Q24_KnightsTour {
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
     int sz = scn.nextInt(); // 5

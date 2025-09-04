@@ -20,4 +20,7 @@
 20. print permutations
 21. print encodings
 22. target sum subsets
-23. 
+23. flood fill
+24. knights tour
+25. n queens
+26. 

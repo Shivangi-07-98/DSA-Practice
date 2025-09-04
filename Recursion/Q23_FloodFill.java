@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class FloodFillQ97 {
+public class Q23_FloodFill {
 
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);
