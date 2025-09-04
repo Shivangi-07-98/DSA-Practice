@@ -1,3 +1,4 @@
+// O(2^n)
 import java.util.*;
 public class Q22_TargetSumSubsets {
 
