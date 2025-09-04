@@ -1,5 +1,5 @@
 import java.util.*;
-public class TargetSumSubsetsQ98 {
+public class Q22_TargetSumSubsets {
   public static void main (String [] args){
     Scanner scn = new Scanner(System.in);
     int n = scn.nextInt(); // 5

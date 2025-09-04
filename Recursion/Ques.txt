@@ -19,4 +19,5 @@
 19. print maze paths with jumps
 20. print permutations
 21. print encodings
-22. 
+22. target sum subsets
+23. 
