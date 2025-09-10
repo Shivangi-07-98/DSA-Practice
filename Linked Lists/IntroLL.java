@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class BasicSetupLL {
+public class IntroLL {
 
   public static class Node {
     int data; // value
@@ -44,3 +44,8 @@ public class BasicSetupLL {
   }
 
 }
+
+// jo classes bnte hai wo iske bahar bnte hai aur main ke andar
+// public static void main(String[] args) {
+
+// }

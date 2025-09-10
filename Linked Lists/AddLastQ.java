@@ -13,7 +13,7 @@ public class AddLastQ {
     Node tail; // address of last node
     int size; // value
 
-    int size(){
+    int size() {
       return size;
     }
 
@@ -23,31 +23,25 @@ public class AddLastQ {
       temp.data = val;
       temp.next = null;
 
-      if(size == 0){
+      if (size == 0) {
         head = tail = temp;
-      }
-      else{
+      } else {
         tail.next = temp;
         tail = temp;
       }
-      
+
       size++;
     }
 
     // O(n)
     void display() {
-      for(Node temp = head; temp != null; temp = temp.next){
+      for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
-
- 
+    
   }
-
-
-
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
@@ -59,7 +53,11 @@ public class AddLastQ {
     list.addLast(20);
     list.display();
     System.out.println(list.size());
-
   }
 
 }
+
+// jo classes bnte hai wo iske bahar bnte hai aur main ke andar
+// public static void main(String[] args) {
+
+// }
