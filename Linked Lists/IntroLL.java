@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-
 public class IntroLL {
 
   public static class Node {
@@ -13,26 +12,22 @@ public class IntroLL {
     Node tail; // address of last node
     int size; // value
 
-    int size(){
+    int size() {
       return size;
     }
 
     void addLast(int val) {
-      
+
     }
 
     void display() {
-      for(Node temp = head; temp != null; temp = temp.next){
+      for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
     }
 
- 
   }
-
-
-
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
@@ -40,7 +35,6 @@ public class IntroLL {
     list.addLast(10);
     list.display();
     System.out.println(list.size());
-
   }
 
 }

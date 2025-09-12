@@ -7,3 +7,10 @@ growth = 1.5 = from 10-15-22
 
 linked list = non continuous, size can grow, 
 data, node address
+
+--------------------------------------------------------------------
+
+classes = main ke andar bnte hai aur iske bahar 
+public static void main(String[] args) {
+}
+
