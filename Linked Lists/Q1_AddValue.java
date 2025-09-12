@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Q4_AddAtIndex {
+public class Q1_AddValue {
 
   public static class Node {
     int data; // value
@@ -23,8 +23,8 @@ public class Q4_AddAtIndex {
       temp.data = val;
 
       if (size == 0) {
-        // temp.next = null;
         head = tail = temp;
+        // temp.next = null; // kuch nhi dala mtlb by default null hai
       } else {
         temp.next = head;
         head = temp;
@@ -73,7 +73,7 @@ public class Q4_AddAtIndex {
 
     // O(n)
     void display() {
-      if(size == 0){
+      if (size == 0) {
         return;
       }
       for (Node temp = head; temp != null; temp = temp.next) {
@@ -91,6 +91,7 @@ public class Q4_AddAtIndex {
     list.addLast(30);
     list.addLast(40);
     list.addLast(50);
+    list.addFirst(5);
 
     list.addAt(4, 1000);
     list.display(); // 10 20 30 40 50 => 10 20 30 40 1000 50

@@ -96,7 +96,7 @@ public class Q2_GetValue {
 
     int val2 = list.getLast();
     System.out.println(val2);
-    
+
     int val3 = list.getAt(2);
     System.out.println(val3);
   }
