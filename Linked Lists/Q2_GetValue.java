@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class GetValueQ {
+public class Q2_GetValue {
 
   public static class Node {
     int data; // value
@@ -14,7 +14,7 @@ public class GetValueQ {
     int size; // value
 
     // O(1)
-    int size(){
+    int size() {
       return size;
     }
 
@@ -24,51 +24,49 @@ public class GetValueQ {
       temp.data = val;
       temp.next = null;
 
-      if(size == 0){
+      if (size == 0) {
         head = tail = temp;
-      }
-      else{
+      } else {
         tail.next = temp;
         tail = temp;
       }
-      
+
       size++;
     }
 
     // O(n)
     void display() {
-      for(Node temp = head; temp != null; temp = temp.next){
+      if (size == 0) {
+        return;
+      }
+      for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     // O(1)
-    int getFirst(){
-      if(size == 0){
+    int getFirst() {
+      if (size == 0) {
         System.out.println("List is empty");
         return -1;
-      }
-      else{
+      } else {
         return head.data;
       }
     }
 
     // O(1)
-    int getLast(){
-      if(size == 0){
+    int getLast() {
+      if (size == 0) {
         System.out.println("List is empty");
         return -1;
-      }
-      else{
+      } else {
         return tail.data;
       }
     }
 
     // O(n)
-    int getAt(int idx){
-
+    int getAt(int idx) {
       if (size == 0) {
         System.out.println("List is empty");
         return -1;
@@ -78,37 +76,29 @@ public class GetValueQ {
       }
 
       Node temp = head;
-      for(int i = 0; i < idx; i++){ // idx 2 means 0,1,2
+      for (int i = 0; i < idx; i++) { // idx 2 means 0,1,2
         temp = temp.next;
       }
       return temp.data;
     }
 
- 
   }
-
-
-
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(10);
-    // list.display();
-    // System.out.println(list.size());
-
     list.addLast(20);
-    // list.display();
-    // System.out.println(list.size());
-
     list.addLast(30);
     list.addLast(40);
 
-    // list.getFirst();
-    // list.getLast();
-    int ans = list.getAt(3);
-    System.out.println(ans);
+    int val1 = list.getFirst();
+    System.out.println(val1);
 
+    int val2 = list.getLast();
+    System.out.println(val2);
+    
+    int val3 = list.getAt(2);
+    System.out.println(val3);
   }
 
 }

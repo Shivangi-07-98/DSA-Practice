@@ -1,11 +1,11 @@
-1. display
-2. add last
-3. get first
-4. get last
-5. get at
-6. add first
-7. add at index
-8. remove first
+1. add last
+2. get value = get first, get last, get at
+3. add first
+4. add at index
+5. remove first
+6. 
+7. 
+8. 
 9. Kth node from end
 10. mid of LL
 11. reverse a ll (data iterative)
