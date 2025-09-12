@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class AddFirstQ {
+public class Q4_AddAtIndex {
 
   public static class Node {
     int data; // value
@@ -13,7 +13,7 @@ public class AddFirstQ {
     Node tail; // address of last node
     int size; // value
 
-    int size(){
+    int size() {
       return size;
     }
 
@@ -21,12 +21,11 @@ public class AddFirstQ {
     void addFirst(int val) {
       Node temp = new Node();
       temp.data = val;
-      
-      if(size == 0){
+
+      if (size == 0) {
         // temp.next = null;
         head = tail = temp;
-      }
-      else{
+      } else {
         temp.next = head;
         head = temp;
       }
@@ -34,52 +33,78 @@ public class AddFirstQ {
       size++;
     }
 
-
     // O(1)
     void addLast(int val) {
       Node temp = new Node();
       temp.data = val;
       temp.next = null;
 
-      if(size == 0){
+      if (size == 0) {
         head = tail = temp;
-      }
-      else{
+      } else {
         tail.next = temp;
         tail = temp;
       }
-      
+
       size++;
+    }
+
+    // 4, 1000
+    void addAt(int idx, int val) { // 10 20 30 40 50 => 10 20 30 40 1000 50
+
+      if (idx == 0) {
+        addFirst(val);
+      } else if (idx == size) {
+        addLast(val);
+      } else if (idx < 0 || idx > size) {
+        System.out.println("Invalid arguments");
+      } else {
+        Node prevIdx = head;
+
+        for (int i = 0; i < idx - 1; i++) {
+          prevIdx = prevIdx.next;
+        }
+
+        Node nextIdx = prevIdx.next;
+
+        Node temp = new Node();
+        temp.data = val;
+        temp.next = nextIdx;
+
+        prevIdx.next = temp;
+        size++;
+      }
+
     }
 
     // O(n)
     void display() {
-      for(Node temp = head; temp != null; temp = temp.next){
+      for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
 
     }
 
- 
   }
-
-
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
 
-    // list.addLast(10);
+    list.addLast(10);
     // list.display();
     // System.out.println(list.size());
 
-    // list.addLast(20);
+    list.addLast(20);
     // list.display();
     // System.out.println(list.size());
 
-    list.addFirst(5);
-    list.display();
+    list.addLast(30);
+    list.addLast(40);
+    list.addLast(50);
 
+    list.addAt(4, 1000);
+    list.display(); // 10 20 30 40 50 => 10 20 30 40 1000 50
 
   }
 
