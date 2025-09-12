@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
-
-public class AddLastQ {
+public class Q1_AddLast {
 
   public static class Node {
     int data; // value
@@ -40,7 +39,7 @@ public class AddLastQ {
       }
       System.out.println();
     }
-    
+
   }
 
   public static void main(String[] args) {
