@@ -1,23 +1,20 @@
 1. add value = add first, add last, add at index
 2. get value = get first, get last, get at index
 3. remove value = remove first, remove last, remove at index
-4. 
-5. 
-6. Kth node from end
-7. mid of LL
-8. reverse a ll (data iterative)
-9. reverse a ll (pointer iterative)
-10. merge two sorted ll
-11. merge sort
-12. remove duplicates in a sorted ll
-13. K Reverse 
-14. odd even 
-15. display reverse (recursive) LL
-
-18. Intersection point of a linked list
-19. reverse a ll (pointer recursive)
-20. reverse a ll (data recursive)
-21. is a LL palindrome
-22. fold a LL
-23. Add two LL
-24. 
+4. Kth node from end
+5. mid of LL
+6. reverse a ll (data iterative)
+7. reverse a ll (pointer iterative)
+8. merge two sorted ll
+9. merge sort
+10. remove duplicates in a sorted ll
+11. K Reverse 
+12. odd even 
+13. display reverse (recursive) LL
+14. Intersection point of a linked list
+15. reverse a ll (pointer recursive)
+16. reverse a ll (data recursive)
+17. is a LL palindrome
+18. fold a LL
+19. Add two LL
+20. 
