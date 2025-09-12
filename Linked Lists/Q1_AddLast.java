@@ -34,6 +34,9 @@ public class Q1_AddLast {
 
     // O(n)
     void display() {
+      if(size == 0){
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }

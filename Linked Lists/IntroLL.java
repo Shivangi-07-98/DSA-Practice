@@ -24,7 +24,7 @@ public class IntroLL {
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
-      System.out.println();
+      // System.out.println();
     }
 
   }
@@ -32,7 +32,7 @@ public class IntroLL {
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
 
-    list.addLast(10);
+    // list.addLast(10);
     list.display();
     System.out.println(list.size());
   }
