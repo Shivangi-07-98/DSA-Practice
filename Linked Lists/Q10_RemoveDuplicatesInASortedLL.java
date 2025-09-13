@@ -35,7 +35,7 @@ public class Q10_RemoveDuplicatesInASortedLL {
 
     // O(n)
     void display() {
-      if(size == 0){
+      if (size == 0) {
         return;
       }
       for (Node temp = head; temp != null; temp = temp.next) {
@@ -75,13 +75,13 @@ public class Q10_RemoveDuplicatesInASortedLL {
           res.addLast(val);
         }
       }
+      // because this = res allowed nhi hota
       head = res.head;
       tail = res.tail;
       size = res.size;
     }
 
   }
-
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
@@ -98,9 +98,9 @@ public class Q10_RemoveDuplicatesInASortedLL {
     list.addLast(55);
     list.addLast(55);
 
-    list.display();
+    list.display(); // 40 40 40 40 40 40 50 55 55 55 55 55 
     list.removeDuplicates();
-    list.display();
+    list.display(); // 40 50 55
   }
 
 }
