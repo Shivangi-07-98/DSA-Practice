@@ -35,15 +35,17 @@ public class Q15_ReverseLLPointerRecursive {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
-    void reversePRHelper(Node node){
-      if(node == tail){
+    void reversePRHelper(Node node) {
+      if (node == tail) {
         return;
       }
       reversePRHelper(node.next);
@@ -56,25 +58,22 @@ public class Q15_ReverseLLPointerRecursive {
       Node temp = head;
       head = tail;
       tail = temp;
-      tail.next = null;
+      tail.next = null; // don't forget this, also put it at end after swap
     }
-
 
   }
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(10);
     list.addLast(20);
     list.addLast(30);
     list.addLast(40);
     list.addLast(50);
-    
+
     list.display(); // 10, 20, 30, 40, 50
     list.reversePointerRecursive();
     list.display(); // 50, 40, 30, 20, 10
-
   }
 
 }
