@@ -44,6 +44,7 @@ public class Q10_RemoveDuplicatesInASortedLL {
       System.out.println();
     }
 
+    // O(1)
     void removeFirst() {
       if (size == 0) {
         System.out.println("List is empty");
@@ -66,6 +67,7 @@ public class Q10_RemoveDuplicatesInASortedLL {
       }
     }
 
+    // O(n)
     void removeDuplicates() {
       LinkedList res = new LinkedList();
       while (size() > 0) {
