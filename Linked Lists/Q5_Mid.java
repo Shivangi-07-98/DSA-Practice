@@ -47,7 +47,8 @@ public class Q5_Mid {
     int mid1() {
       Node fast = head;
       Node slow = head;
-      while (fast.next != null && fast.next.next != null) {
+      // 1st condition to handle odd size and second for even size
+      while (fast.next != null && fast.next.next != null) { 
         // while(fast != tail && fast.next != tail){
         fast = fast.next.next;
         slow = slow.next;
