@@ -35,11 +35,13 @@ public class Q13_DisplayReverseRecursive {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     private void displayReverseHelper(Node node) {
@@ -51,15 +53,14 @@ public class Q13_DisplayReverseRecursive {
     }
 
     public void displayReverse() {
-      displayReverseHelper(head);
-      System.out.println();
+      displayReverseHelper(head); // ye print krdega
+      System.out.println(); // ye enter
     }
 
   }
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(10);
     list.addLast(20);
     list.addLast(30);
@@ -69,7 +70,6 @@ public class Q13_DisplayReverseRecursive {
     list.display();
     list.displayReverse();
     // list.display();
-
   }
 
 }
