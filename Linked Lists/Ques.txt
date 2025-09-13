@@ -8,7 +8,7 @@
 8. merge two sorted ll
 9. merge sort
 10. remove duplicates in a sorted ll
-11. K Reverse 
+11. K Reverse = google(imp) practice
 12. odd even 
 13. display reverse (recursive) LL
 14. Intersection point of a linked list

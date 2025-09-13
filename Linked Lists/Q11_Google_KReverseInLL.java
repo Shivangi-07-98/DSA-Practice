@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-// abc def ghi jk => cba fed ihg jk only reverse 3 pairs because k = 3 
+// abc def ghi jk => cba fed ihg jk => only reverse 3 pairs because k = 3, dont reverse jk 
 public class Q11_Google_KReverseInLL {
 
   public static class Node {
@@ -36,11 +36,13 @@ public class Q11_Google_KReverseInLL {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     // o1
@@ -83,9 +85,7 @@ public class Q11_Google_KReverseInLL {
     void kReverse(int k) {
       LinkedList prev = null;
       LinkedList curr = new LinkedList();
-
       while (size() > 0) {
-
         if (size() < k) {
           int sz = size();
           for (int i = 0; i < sz; i++) {
@@ -111,9 +111,7 @@ public class Q11_Google_KReverseInLL {
           prev.size += curr.size;
           curr = new LinkedList();
         }
-
       }
-
       head = prev.head;
       tail = prev.tail;
       size = prev.size;
@@ -123,7 +121,6 @@ public class Q11_Google_KReverseInLL {
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(10);
     list.addLast(20);
     list.addLast(30);
@@ -136,7 +133,6 @@ public class Q11_Google_KReverseInLL {
     list.display(); // 10, 20, 30, 40, 50, 60, 70, 80
     list.kReverse(3);
     list.display(); // 30, 20, 10, 60, 50, 40, 70, 80
-
   }
 
 }
