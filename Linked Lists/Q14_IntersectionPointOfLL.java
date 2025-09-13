@@ -13,7 +13,7 @@ public class Q14_IntersectionPointOfLL {
     Node tail; // address of last node
     int size; // value
 
-    int size(){
+    int size() {
       return size;
     }
 
@@ -23,33 +23,31 @@ public class Q14_IntersectionPointOfLL {
       temp.data = val;
       temp.next = null;
 
-      if(size == 0){
+      if (size == 0) {
         head = tail = temp;
-      }
-      else{
+      } else {
         tail.next = temp;
         tail = temp;
       }
-      
+
       size++;
     }
 
     // O(n)
     void display() {
-      for(Node temp = head; temp != null; temp = temp.next){
+      if (size == 0) {
+        return;
+      }
+      for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
-    
     public static int findIntersection(LinkedList one, LinkedList two) {
-
       Node otemp = one.head;
       Node ttemp = two.head;
-
-      int gap = Math.abs(one.size - two.size);
+      int gap = Math.abs(one.size - two.size); // we don't know which size is bigger so to avoid negative number
       if (one.size > two.size) {
         for (int i = 0; i < gap; i++) {
           otemp = otemp.next;
@@ -64,19 +62,10 @@ public class Q14_IntersectionPointOfLL {
         otemp = otemp.next;
         ttemp = ttemp.next;
       }
-
       return otemp.data;
     }
 
-
-    // public static int findIntersection(LinkedList one, LinkedList two){
-
-    //   return 0;
-    // }
-
   }
-
-
 
   public static void main(String[] args) {
     LinkedList list1 = new LinkedList();
@@ -85,13 +74,13 @@ public class Q14_IntersectionPointOfLL {
     // Create common nodes that will be shared
     Node commonNode1 = new Node();
     commonNode1.data = 50;
-    
+
     Node commonNode2 = new Node();
     commonNode2.data = 60;
-    
+
     Node commonNode3 = new Node();
     commonNode3.data = 70;
-    
+
     commonNode1.next = commonNode2;
     commonNode2.next = commonNode3;
     commonNode3.next = null;
@@ -113,7 +102,7 @@ public class Q14_IntersectionPointOfLL {
     list2.size += 3;
 
     int inter = LinkedList.findIntersection(list1, list2);
-    System.out.println(inter); 
+    System.out.println(inter);
   }
 
 }
