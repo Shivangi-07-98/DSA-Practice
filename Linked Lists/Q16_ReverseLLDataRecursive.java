@@ -35,13 +35,14 @@ public class Q16_ReverseLLDataRecursive {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
-
 
     void reverseDRHelper(Node right, int floor) {
       if (right == null) {
@@ -52,12 +53,13 @@ public class Q16_ReverseLLDataRecursive {
         int temp = left.data;
         left.data = right.data;
         right.data = temp;
-        left = left.next;
+        left = left.next; // right-- by recursion
       }
-
     }
 
-    Node left = null;
+    Node left = null; // see line 12 13 14 it will be found in linked list class when we make one
+    // IMPORTANT: Cannot initialize as 'left = head' here because head is null when object is created. Must set left = head inside method when head has real value!
+    // Now head points to node with value 10, But left is still null! It was set when head was null
     void reverseDataRecursive() {
       left = head;
       reverseDRHelper(head, 0);
@@ -67,7 +69,6 @@ public class Q16_ReverseLLDataRecursive {
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(10);
     list.addLast(20);
     list.addLast(30);
@@ -77,7 +78,6 @@ public class Q16_ReverseLLDataRecursive {
     list.display(); // 10, 20, 30, 40, 50
     list.reverseDataRecursive();
     list.display(); // 50, 40, 30, 20, 10
-
   }
 
 }

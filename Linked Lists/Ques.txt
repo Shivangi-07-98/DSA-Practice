@@ -13,7 +13,7 @@
 13. display reverse (recursive) LL
 14. Intersection point of a linked list
 15. reverse a ll (pointer recursive)
-16. reverse a ll (data recursive) = imp practice
+16. reverse a ll (data recursive) = infinite imp practice
 17. is a LL palindrome
 18. fold a LL
 19. Add two LL
