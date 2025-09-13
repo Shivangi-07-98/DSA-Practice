@@ -35,16 +35,17 @@ public class Q8_MergeTwoSortedLL {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     public static LinkedList MergeTwoSortedLL(LinkedList l1, LinkedList l2) {
       LinkedList res = new LinkedList();
-
       Node one = l1.head;
       Node two = l2.head;
       while (one != null && two != null) {
@@ -57,46 +58,13 @@ public class Q8_MergeTwoSortedLL {
         }
       }
 
-      if (one == null) {
-        while (two != null) {
-          res.addLast(two.data);
-          two = two.next;
-        }
-      } else if (two == null) {
-        while (one != null) {
-          res.addLast(one.data);
-          one = one.next;
-        }
-      }
-
-      return res;
-    }
-
-
-    public static LinkedList MyMergeTwoSortedLL(LinkedList l1, LinkedList l2) {
-      LinkedList res = new LinkedList();
-
-      Node one = l1.head;
-      Node two = l2.head;
-      while(one != null && two != null){
-        if(one.data < two.data){
-          res.addLast(one.data);
-          one = one.next;
-        }
-        else{
-          res.addLast(two.data);
-          two = two.next;
-        }
-      }
-
-      while(one != null){
-        res.addLast(one.data);
-          one = one.next;
-      }
-
-      while(two != null){
+      while (two != null) {
         res.addLast(two.data);
-          two = two.next;
+        two = two.next;
+      }
+      while (one != null) {
+        res.addLast(one.data);
+        one = one.next;
       }
 
       return res;
@@ -106,7 +74,6 @@ public class Q8_MergeTwoSortedLL {
 
   public static void main(String[] args) {
     LinkedList list1 = new LinkedList();
-
     list1.addLast(10);
     list1.addLast(20);
     list1.addLast(30);
@@ -116,7 +83,6 @@ public class Q8_MergeTwoSortedLL {
     list1.display(); // 10, 20, 30, 40, 50
 
     LinkedList list2 = new LinkedList();
-
     list2.addLast(11);
     list2.addLast(15);
     list2.addLast(17);
@@ -127,9 +93,8 @@ public class Q8_MergeTwoSortedLL {
 
     list2.display(); // 11, 15, 17, 19, 33, 55, 66
 
-    LinkedList ans = LinkedList.MyMergeTwoSortedLL(list1, list2); // 10, 11, 15, 17, 19, 20, 30, 33, 40, 50, 55, 66
+    LinkedList ans = LinkedList.MergeTwoSortedLL(list1, list2); // 10, 11, 15, 17, 19, 20, 30, 33, 40, 50, 55, 66
     ans.display();
-
   }
 
 }
