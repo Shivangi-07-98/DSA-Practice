@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class MidQ {
+public class Q5_Mid {
 
   public static class Node {
     int data; // value
@@ -35,36 +35,23 @@ public class MidQ {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     int mid1() {
-      int val = size / 2;
-      Node temp = head;
-      for (int i = 0; i < val -1; i++) {
-        temp = temp.next;
-      }
-      if (size % 2 == 0) { // even
-        return temp.data;
-      } else { // odd
-        return temp.next.data;
-      }
-
-    }
-
-    int mid2(){
       Node fast = head;
       Node slow = head;
-      while(fast.next != null && fast.next.next != null){
-      // while(fast != tail && fast.next != tail){
+      while (fast.next != null && fast.next.next != null) {
+        // while(fast != tail && fast.next != tail){
         fast = fast.next.next;
         slow = slow.next;
       }
-
       return slow.data;
     }
 
@@ -72,29 +59,16 @@ public class MidQ {
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(10);
-    // list.display();
-    // System.out.println(list.size());
-
     list.addLast(20);
-    // list.display();
-    // System.out.println(list.size());
-
     list.addLast(30);
     list.addLast(40);
     list.addLast(50);
     list.addLast(60);
     list.addLast(70);
 
-    // System.out.println(list.size());
-
-    // int ans = list.mid1();
-    // System.out.println(ans);
-
-    int ans = list.mid2();
+    int ans = list.mid1();
     System.out.println(ans);
-
   }
 
 }
