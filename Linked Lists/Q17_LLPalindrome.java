@@ -35,11 +35,13 @@ public class Q17_LLPalindrome {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     boolean isPalindromeHelper(Node right) {
@@ -55,7 +57,6 @@ public class Q17_LLPalindrome {
         left = left.next;
         return true;
       }
-
     }
 
     Node left = null;
@@ -68,7 +69,6 @@ public class Q17_LLPalindrome {
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(5);
     list.addLast(10);
     list.addLast(20);
@@ -77,10 +77,9 @@ public class Q17_LLPalindrome {
     list.addLast(10);
     list.addLast(5);
 
-    list.display(); 
+    list.display();
     boolean ans = list.isPalindrome();
     System.out.println(ans);
-
   }
 
 }
