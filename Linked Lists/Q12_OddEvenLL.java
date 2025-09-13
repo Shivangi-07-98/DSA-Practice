@@ -1,8 +1,3 @@
-// hint to solve ques => make two list odd and even then connect both and make (this) point to this list
-// if both odd even present then this check odd.size > 0 && even.size > 0
-// if only odd present
-// if only even present
-
 import java.io.*;
 import java.util.*;
 
@@ -40,11 +35,13 @@ public class Q12_OddEvenLL {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     // o1
@@ -87,11 +84,9 @@ public class Q12_OddEvenLL {
     void OddEven() {
       LinkedList odd = new LinkedList();
       LinkedList even = new LinkedList();
-
       while (size > 0) {
         int val = this.getFirst();
         this.removeFirst();
-
         if (val % 2 != 0) {
           odd.addLast(val);
         } else {
@@ -113,14 +108,12 @@ public class Q12_OddEvenLL {
         this.tail = even.tail;
         this.size = even.size;
       }
-
     }
 
   }
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(2);
     list.addLast(8);
     list.addLast(9);
@@ -132,7 +125,6 @@ public class Q12_OddEvenLL {
     list.display(); // 2, 8, 9, 1, 5, 4, 3
     list.OddEven();
     list.display(); // 9, 1, 5, 3, 2, 8, 4
-
   }
 
 }
