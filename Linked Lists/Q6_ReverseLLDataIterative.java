@@ -1,3 +1,4 @@
+// O(n^2)
 import java.io.*;
 import java.util.*;
 
@@ -35,11 +36,13 @@ public class Q6_ReverseLLDataIterative {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     // O(n)
@@ -53,28 +56,23 @@ public class Q6_ReverseLLDataIterative {
 
     // O(n2)
     void ReverseALinkedListDataIterative() {
-
       int i = 0;
       int j = size - 1;
       while (i < j) {
         Node leftNode = getNodeAt(i);
         Node rightNode = getNodeAt(j);
-
         int temp = leftNode.data;
         leftNode.data = rightNode.data;
         rightNode.data = temp;
-        
         i++;
         j--;
       }
-      
     }
 
   }
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(10);
     list.addLast(20);
     list.addLast(30);
@@ -86,7 +84,6 @@ public class Q6_ReverseLLDataIterative {
     list.display(); // 10, 20, 30, 40, 50, 60, 70
     list.ReverseALinkedListDataIterative();
     list.display(); // 70, 60, 50, 40, 30, 20, 10
-
   }
 
 }
