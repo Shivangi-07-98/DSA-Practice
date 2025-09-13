@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ReverseLLPointerRecursiveQ {
+public class Q15_ReverseLLPointerRecursive {
 
   public static class Node {
     int data; // value

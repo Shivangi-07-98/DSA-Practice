@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class LLPalindromeQ {
+public class Q17_LLPalindrome {
 
   public static class Node {
     int data; // value
