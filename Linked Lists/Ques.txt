@@ -4,7 +4,7 @@
 4. Kth node from end
 5. mid of LL
 6. reverse a ll (data iterative)
-7. reverse a ll (pointer iterative)
+7. reverse a ll (pointer iterative) = practice
 8. merge two sorted ll
 9. merge sort
 10. remove duplicates in a sorted ll
