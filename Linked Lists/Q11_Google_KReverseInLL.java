@@ -82,6 +82,7 @@ public class Q11_Google_KReverseInLL {
       }
     }
 
+    // O(n)
     void kReverse(int k) {
       LinkedList prev = null;
       LinkedList curr = new LinkedList();
