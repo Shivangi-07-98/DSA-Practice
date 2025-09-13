@@ -35,11 +35,13 @@ public class Q7_ReverseLLPointerIterative {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     // O(n)
@@ -55,13 +57,12 @@ public class Q7_ReverseLLPointerIterative {
     void ReverseALinkedListPointerIterative() {
       Node prev = null;
       Node curr = head;
-      while(curr != null){
+      while (curr != null) {
         Node next = curr.next;
         curr.next = prev;
         prev = curr;
         curr = next;
       }
-
       Node temp = head;
       head = tail;
       tail = temp;
@@ -71,7 +72,6 @@ public class Q7_ReverseLLPointerIterative {
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(10);
     list.addLast(20);
     list.addLast(30);
@@ -83,7 +83,6 @@ public class Q7_ReverseLLPointerIterative {
     list.display(); // 10, 20, 30, 40, 50, 60, 70
     list.ReverseALinkedListPointerIterative();
     list.display(); // 70, 60, 50, 40, 30, 20, 10
-
   }
 
 }
