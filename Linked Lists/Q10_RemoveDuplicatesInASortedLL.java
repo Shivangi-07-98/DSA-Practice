@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class RemoveDuplicatesInASortedLLQ {
+public class Q10_RemoveDuplicatesInASortedLL {
 
   public static class Node {
     int data; // value
@@ -35,11 +35,13 @@ public class RemoveDuplicatesInASortedLLQ {
 
     // O(n)
     void display() {
+      if(size == 0){
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     void removeFirst() {
@@ -66,7 +68,6 @@ public class RemoveDuplicatesInASortedLLQ {
 
     void removeDuplicates() {
       LinkedList res = new LinkedList();
-
       while (size() > 0) {
         int val = getFirst();
         removeFirst();
@@ -74,7 +75,6 @@ public class RemoveDuplicatesInASortedLLQ {
           res.addLast(val);
         }
       }
-
       head = res.head;
       tail = res.tail;
       size = res.size;
@@ -85,7 +85,6 @@ public class RemoveDuplicatesInASortedLLQ {
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(40);
     list.addLast(40);
     list.addLast(40);
@@ -102,7 +101,6 @@ public class RemoveDuplicatesInASortedLLQ {
     list.display();
     list.removeDuplicates();
     list.display();
-
   }
 
 }

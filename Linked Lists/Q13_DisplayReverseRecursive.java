@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class DisplayReverseRecursiveQ {
+public class Q13_DisplayReverseRecursive {
 
   public static class Node {
     int data; // value
