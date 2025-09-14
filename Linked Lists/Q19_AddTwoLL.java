@@ -13,7 +13,7 @@ public class Q19_AddTwoLL {
     Node tail; // address of last node
     int size; // value
 
-    int size(){
+    int size() {
       return size;
     }
 
@@ -23,18 +23,17 @@ public class Q19_AddTwoLL {
       temp.data = val;
       temp.next = null;
 
-      if(size == 0){
+      if (size == 0) {
         head = tail = temp;
-      }
-      else{
+      } else {
         tail.next = temp;
         tail = temp;
       }
-      
+
       size++;
     }
 
-    void removeFirst(){
+    void removeFirst() {
       if (size == 0) {
         System.out.println("List is empty");
       } else if (size == 1) {
@@ -48,11 +47,13 @@ public class Q19_AddTwoLL {
 
     // O(n)
     void display() {
-      for(Node temp = head; temp != null; temp = temp.next){
+      if (size == 0) {
+        return;
+      }
+      for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
 
     // o1
@@ -66,61 +67,46 @@ public class Q19_AddTwoLL {
         node.next = head;
         head = node;
       }
+
       size++;
     }
 
-
-    // public static LinkedList AddTwoLL(LinkedList one, LinkedList two) {
-      
-    // }
-
-    
-    private static int addHelper(Node one, Node two, int pio, int pit, LinkedList res){
-      if(one == null && two == null){
+    private static int addHelper(Node one, Node two, int pio, int pit, LinkedList res) {
+      if (one == null && two == null) {
         return 0;
       }
-
       int data = 0;
       int carry = 0;
-
-      if(pio > pit){
+      if (pio > pit) {
         carry = addHelper(one.next, two, pio - 1, pit, res);
         data = carry + one.data;
-      }
-      else if(pit > pio){
+      } else if (pit > pio) {
         carry = addHelper(one, two.next, pio, pit - 1, res);
         data = carry + two.data;
-      }
-      else{
+      } else {
         carry = addHelper(one.next, two.next, pio - 1, pit - 1, res);
         data = carry + one.data + two.data;
       }
 
       carry = data / 10;
       data = data % 10;
-
       res.addFirst(data);
       return carry;
-      
     }
 
-    public static LinkedList addTwoLists(LinkedList one, LinkedList two){
+    public static LinkedList addTwoLists(LinkedList one, LinkedList two) {
       LinkedList res = new LinkedList();
       int carry = addHelper(one.head, two.head, one.size, two.size, res);
-      if(carry > 0){
+      if (carry > 0) {
         res.addFirst(carry);
       }
       return res;
     }
 
-
- 
   }
-
 
   public static void main(String[] args) {
     LinkedList list1 = new LinkedList();
-
     list1.addLast(9);
     list1.addLast(5);
     list1.addLast(4);
@@ -128,17 +114,12 @@ public class Q19_AddTwoLL {
     list1.addLast(6);
 
     LinkedList list2 = new LinkedList();
-
     list2.addLast(7);
     list2.addLast(8);
     list2.addLast(7);
 
-    list1.display();
-    list2.display();
-
     LinkedList sum = LinkedList.addTwoLists(list1, list2);
     sum.display();
-
   }
 
 }
