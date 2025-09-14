@@ -35,13 +35,14 @@ public class Q18_FoldaLL {
 
     // O(n)
     void display() {
+      if (size == 0) {
+        return;
+      }
       for (Node temp = head; temp != null; temp = temp.next) {
         System.out.print(temp.data + " ");
       }
       System.out.println();
-
     }
-
 
     void foldHelper(Node right, int floor) {
       if (right == null) {
@@ -54,7 +55,6 @@ public class Q18_FoldaLL {
         right.data = temp;
         left = left.next;
       }
-
     }
 
     Node left = null;
@@ -67,7 +67,6 @@ public class Q18_FoldaLL {
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
-
     list.addLast(1);
     list.addLast(2);
     list.addLast(3);
@@ -78,7 +77,6 @@ public class Q18_FoldaLL {
     list.fold();
     list.display(); // 1, 5, 2, 4, 3
     // 1 2 3 4 5 6 => 1 6 2 5 3 4
-
   }
 
 }
