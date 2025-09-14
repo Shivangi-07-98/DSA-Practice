@@ -49,11 +49,14 @@ public class Q18_FoldaLL {
         return;
       }
       foldHelper(right.next, floor + 1);
-      if (floor >= size / 2) {
-        int temp = left.data;
-        left.data = right.data;
-        right.data = temp;
-        left = left.next;
+      if (floor > size / 2) { // 1 2 3 4 5 6 => 1 6 2 5 3 4
+        Node temp = left.next;
+        left.next = right;
+        right.next = temp;
+        left = temp;
+      } else if (floor == size / 2) {
+        tail = right;
+        tail.next = null;
       }
     }
 
@@ -72,11 +75,28 @@ public class Q18_FoldaLL {
     list.addLast(3);
     list.addLast(4);
     list.addLast(5);
+    list.addLast(6);
 
-    list.display(); // 1, 2, 3, 4, 5
+    list.display(); // 1, 2, 3, 4, 5, 6
     list.fold();
-    list.display(); // 1, 5, 2, 4, 3
+    list.display(); // 1, 6, 2, 5, 3, 4
     // 1 2 3 4 5 6 => 1 6 2 5 3 4
   }
 
 }
+
+/*
+ * QUESTION: Fold a Linked List
+ * - Take first element, then last element, then second element, then second
+ * last element, and so on
+ * - Example: 1->2->3->4->5 becomes 1->5->2->4->3
+ * - Example: 1->2->3->4->5->6 becomes 1->6->2->5->3->4
+ * 
+ * APPROACH:
+ * 1. Use recursion to reach the end (right pointer)
+ * 2. Use class variable 'left' to track from start
+ * 3. On returning from recursion:
+ * - If floor > size/2: Insert right node after left node
+ * - If floor == size/2: Set tail and end list (for odd size)
+ * 4. Move left forward after each insertion
+ */
