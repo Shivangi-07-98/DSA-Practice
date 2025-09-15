@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class BasicSetupGT { 
+public class _BasicSetupGT { 
 
   public static class Node {
     int data;

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class GenericTreeIntro2 { 
+public class _GenericTreeIntro2 { 
 
     public static class Node {
         int data;

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class QueueIntro {  
+public class _QueueIntro {  
     public static void main(String[] args) {
 
         // Create a queue using ArrayDeque (FIFO - First In First Out)
