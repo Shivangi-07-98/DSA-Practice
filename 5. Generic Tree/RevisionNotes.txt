@@ -11,17 +11,13 @@ stack-
 Stack<Integer> stack = new Stack<>(); // just like arraylist
 Stack<String> stack = new Stack<>();
 
-System.out.println(stack);
-stack.push(10);
-stack.peek();
-stack.pop();
-stack.size()
+System.out.println(stack);     System.out.println(queue);
+stack.push(10);                queue.add(10);
+stack.peek();                  queue.peek();
+stack.pop();                   queue.remove();
+stack.size();                  queue.size();
 
 queue-
 
 Queue<Integer> queue = new ArrayDeque<>();
-
-System.out.println(queue);
-queue.add(10);
-queue.peek();
-queue.remove();
+Queue<Node> queue = new ArrayDeque<Node>();
