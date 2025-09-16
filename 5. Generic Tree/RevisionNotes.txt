@@ -2,4 +2,26 @@ stack - bread packet
 push, pop, peek
 
 queue - 
-add, remove, peek
+add, remove, peek 
+
+-------------------------------------------------------------------
+
+stack-
+
+Stack<Integer> stack = new Stack<>(); // just like arraylist
+Stack<String> stack = new Stack<>();
+
+System.out.println(stack);
+stack.push(10);
+stack.peek();
+stack.pop();
+stack.size()
+
+queue-
+
+Queue<Integer> queue = new ArrayDeque<>();
+
+System.out.println(queue);
+queue.add(10);
+queue.peek();
+queue.remove();
