@@ -1,10 +1,13 @@
 import java.util.*;
 
-public class MirrorQ {
+public class Q6_RemoveLeaves {
 
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
+    Node(int data) {
+      this.data = data;
+    }
   }
 
   public static void display(Node node) {
@@ -42,80 +45,64 @@ public class MirrorQ {
   }
 
   public static Node construct(int[] arr) {
+    // using the array create a tree and return root
     Node root = null;
-    Stack<Node> st = new Stack<>();
-
-    for (int i = 0; i < arr.length; i++) {
-      if (arr[i] == -1) {
-        st.pop();
+    Stack<Node> stack = new Stack<>();
+    for (int val : arr) {
+      if (val != -1) {
+        Node node = new Node(val);
+        stack.push(node);
       } else {
-        Node t = new Node();
-        t.data = arr[i];
-
-        if (st.size() > 0) {
-          st.peek().children.add(t);
+        Node node = stack.pop();
+        if (stack.size() > 0) {
+          Node parent = stack.peek();
+          parent.children.add(node);
         } else {
-          root = t;
+          root = node;
         }
-        st.push(t);
       }
     }
-
     return root;
   }
 
-  public static void mirror(Node node) {
+  public static void removeLeaves(Node node) {
+    // remove your own leaves
+    // deleting in node pre also this loop should be above the call
+    for (int i = node.children.size() - 1; i >= 0; i--) {
+      Node child = node.children.get(i);
+      if (child.children.size() == 0) {
+        node.children.remove(i);
+      }
+    }
+
+    // request the children
     for (Node child : node.children) {
-      mirror(child);
+      removeLeaves(child);
     }
-    // Collections.reverse(node.children); // this is for arraylists
-
-    // Reverse the order of children
-    int li = 0;
-    int ri = node.children.size() - 1;
-    while (li < ri) {
-      Node left = node.children.get(li);
-      Node right = node.children.get(ri);
-      node.children.set(li, right);
-      node.children.set(ri, left);
-      li++;
-      ri--;
-    }
-
   }
 
-  public static void myMirror(Node node) {
-    for (Node child : node.children) {
-      myMirror(child);
+  public static void myRemoveLeaves(Node node) {
+    for (int i = node.children.size() - 1; i >= 0; i--) {
+      Node child = node.children.get(i);
+      if (child.children.size() == 0) {
+        node.children.remove(i);
+      }
     }
 
-    int a = 0;
-    int b = node.children.size() - 1;
-
-    while (a < b) {
-      Node left = node.children.get(a);
-      Node right = node.children.get(b);
-      node.children.set(a, right);
-      node.children.set(b, left);
-
-      a++;
-      b--;
+    for(Node child: node.children){
+      myRemoveLeaves(child);
     }
-
+    
   }
 
   public static void main(String[] args) throws Exception {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
-
     Node root = construct(arr);
-    // display(root);
-    // mirror(root);
-    // display(root);
 
     levelOrderLinewise(root);
-    // mirror(root);
-    myMirror(root);
+    removeLeaves(root);
+    // display(root);
     levelOrderLinewise(root);
   }
 

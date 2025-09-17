@@ -1,10 +1,13 @@
 import java.util.*;
 
-public class RemoveLeavesQ {
+public class Q5_Mirror {
 
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
+    Node(int data) {
+      this.data = data;
+    }
   }
 
   public static void display(Node node) {
@@ -42,56 +45,44 @@ public class RemoveLeavesQ {
   }
 
   public static Node construct(int[] arr) {
+    // using the array create a tree and return root
     Node root = null;
-    Stack<Node> st = new Stack<>();
-
-    for (int i = 0; i < arr.length; i++) {
-      if (arr[i] == -1) {
-        st.pop();
+    Stack<Node> stack = new Stack<>();
+    for (int val : arr) {
+      if (val != -1) {
+        Node node = new Node(val);
+        stack.push(node);
       } else {
-        Node t = new Node();
-        t.data = arr[i];
-
-        if (st.size() > 0) {
-          st.peek().children.add(t);
+        Node node = stack.pop();
+        if (stack.size() > 0) {
+          Node parent = stack.peek();
+          parent.children.add(node);
         } else {
-          root = t;
+          root = node;
         }
-        st.push(t);
       }
     }
-
     return root;
   }
 
-  public static void removeLeaves(Node node) {
-    // remove your own leaves
-    // deleting in node pre also this loop should be above the call
-    for (int i = node.children.size() - 1; i >= 0; i--) {
-      Node child = node.children.get(i);
-      if (child.children.size() == 0) {
-        node.children.remove(i);
-      }
-    }
-
-    // request the children
+  public static void mirror(Node node) {
     for (Node child : node.children) {
-      removeLeaves(child);
+      mirror(child);
     }
-  }
+    // Collections.reverse(node.children); // this is for arraylists
 
-  public static void myRemoveLeaves(Node node) {
-    for (int i = node.children.size() - 1; i >= 0; i--) {
-      Node child = node.children.get(i);
-      if (child.children.size() == 0) {
-        node.children.remove(i);
-      }
+    // Reverse the order of children
+    int li = 0;
+    int ri = node.children.size() - 1;
+    while (li < ri) {
+      Node left = node.children.get(li);
+      Node right = node.children.get(ri);
+      node.children.set(li, right);
+      node.children.set(ri, left);
+      li++;
+      ri--;
     }
 
-    for(Node child: node.children){
-      myRemoveLeaves(child);
-    }
-    
   }
 
   public static void main(String[] args) throws Exception {
@@ -100,8 +91,7 @@ public class RemoveLeavesQ {
     Node root = construct(arr);
 
     levelOrderLinewise(root);
-    removeLeaves(root);
-    // display(root);
+    mirror(root);
     levelOrderLinewise(root);
   }
 
