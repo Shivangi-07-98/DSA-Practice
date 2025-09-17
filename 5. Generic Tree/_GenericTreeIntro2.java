@@ -34,11 +34,11 @@ public class _GenericTreeIntro2 {
   // 20 30 40
   // 50 60 70 80 90 100
   // 110 120
+  // using queue
   public static void levelOrderLinewise(Node root) {
     Queue<Node> queue = new ArrayDeque<Node>();
     Queue<Node> cqueue = new ArrayDeque<Node>();
     queue.add(root);
-
     while (queue.size() > 0) {
       Node temp = queue.remove();
       System.out.print(temp.data + " ");
@@ -59,14 +59,12 @@ public class _GenericTreeIntro2 {
     // using the array create a tree and return root
     Node root = null;
     Stack<Node> stack = new Stack<>();
-
     for (int val : arr) {
       if (val != -1) {
         Node node = new Node(val);
         stack.push(node);
       } else {
         Node node = stack.pop();
-
         if (stack.size() > 0) {
           Node parent = stack.peek();
           parent.children.add(node);
