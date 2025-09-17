@@ -1,10 +1,6 @@
-1. level order 
-2. level order linewise
-3. level order linewise zig zag
-4. construct 
-5. size, max, height of generic tree
-6. Traversals Pre Post Order
-7. serialize
+1. level order, level order linewise, level order linewise zig zag, construct 
+2. size, max, height of generic tree
+3. Traversals Pre Post Order, serialize
 8. mirror a gt
 9. remove leaves in gt
 10. linearize a gt

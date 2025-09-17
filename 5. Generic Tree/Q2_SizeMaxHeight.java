@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SizeMaxHeightQ {
+public class Q2_SizeMaxHeight {
 
   public static class Node {
     int data;
