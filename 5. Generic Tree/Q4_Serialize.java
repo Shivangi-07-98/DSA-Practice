@@ -1,14 +1,30 @@
 import java.util.*;
 
-public class TraversalsPrePostOrderQ {
+public class Q4_Serialize {
 
-  private static class Node {
+  public static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
 
     Node(int data) {
       this.data = data;
     }
+  }
+
+  public static void levelOrder(Node root) {
+    Queue<Node> queue = new ArrayDeque<Node>();
+    queue.add(root);
+
+    while (queue.size() > 0) {
+      // remove, print, add children
+      Node temp = queue.remove();
+      System.out.print(temp.data + " ");
+      for (Node child : temp.children) {
+        queue.add(child);
+      }
+    }
+
+    System.out.println(".");
   }
 
   public static void levelOrderLinewise(Node root) {
@@ -19,9 +35,11 @@ public class TraversalsPrePostOrderQ {
     while (queue.size() > 0) {
       Node temp = queue.remove();
       System.out.print(temp.data + " ");
+
       for (Node child : temp.children) {
         cqueue.add(child);
       }
+
       if (queue.size() == 0) {
         queue = cqueue;
         cqueue = new ArrayDeque<>();
@@ -51,28 +69,26 @@ public class TraversalsPrePostOrderQ {
     return root;
   }
 
-  public static void traversals(Node node) {
-    // Node Pre
-    System.out.println("Node Pre " + node.data);
-
-    // Loop, before call is Edge Pre, after call is Edge Post
+  public static void serialize(Node node, ArrayList<Integer> list) {
+    list.add(node.data); // node pre
     for (Node child : node.children) {
-      System.out.println("Edge Pre " + node.data + "--" + child.data);
-      traversals(child);
-      System.out.println("Edge Post " + node.data + "--" + child.data);
+      serialize(child, list);
     }
-
-    // Node Post
-    System.out.println("Node Post " + node.data);
+    list.add(-1); // node post
   }
 
-  public static void main(String[] args) throws Exception {
+  public static void main(String[] args) {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1 };
     Node root = construct(arr);
-    traversals(root);
+
+    ArrayList<Integer> list = new ArrayList<>();
+    serialize(root, list);
+    System.out.println(list);
+    // [10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1,
+    // -1, 40, 100, -1, -1, -1]
+
+    // levelOrder(root);
+    // levelOrderLinewise(root);
   }
 
 }
-
-// 24
-// 10 20 50 -1 60 -1 -1 30 70 -1 80 110 -1 120 -1 -1 90 -1 -1 40 100 -1 -1 -1
