@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q4_Serialize {
+public class Q4_Serialize_TreeToArray {
 
   public static class Node {
     int data;
@@ -11,35 +11,16 @@ public class Q4_Serialize {
     }
   }
 
-  public static void levelOrder(Node root) {
-    Queue<Node> queue = new ArrayDeque<Node>();
-    queue.add(root);
-
-    while (queue.size() > 0) {
-      // remove, print, add children
-      Node temp = queue.remove();
-      System.out.print(temp.data + " ");
-      for (Node child : temp.children) {
-        queue.add(child);
-      }
-    }
-
-    System.out.println(".");
-  }
-
   public static void levelOrderLinewise(Node root) {
     Queue<Node> queue = new ArrayDeque<Node>();
     Queue<Node> cqueue = new ArrayDeque<Node>();
     queue.add(root);
-
     while (queue.size() > 0) {
       Node temp = queue.remove();
       System.out.print(temp.data + " ");
-
       for (Node child : temp.children) {
         cqueue.add(child);
       }
-
       if (queue.size() == 0) {
         queue = cqueue;
         cqueue = new ArrayDeque<>();
