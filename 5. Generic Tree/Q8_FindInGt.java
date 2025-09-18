@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class FindInGtQ {
+public class Q8_FindInGt {
 
     public static class Node {
         int data;

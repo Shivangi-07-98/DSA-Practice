@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class DistanceBetweenTwoNodesQ {
+public class Q10_LowestCommonAncestor {
 
     public static class Node {
         int data;
@@ -127,39 +127,19 @@ public class DistanceBetweenTwoNodesQ {
         return lca;
     }
 
-    public static int distanceBetweenTwoNodes(Node node, int d1, int d2) {
-        ArrayList<Integer> path1 = nodeToRootPath(node, d1);
-        ArrayList<Integer> path2 = nodeToRootPath(node, d2);
-        int i = path1.size() - 1;
-        int j = path2.size() - 1;
-
-        while (i >= 0 && j >= 0) {
-            if (path1.get(i) == path2.get(j)) {
-                i--;
-                j--;
-            } else {
-                break;
-            }
-        }
-
-        i++;
-        j++;
-        return i + j;
-
-    }
-
     public static void main(String[] args) {
         int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
                 -1 };
         Node root = construct(arr);
 
         int d1 = 120;
-        int d2 = 50;
-        int distance = distanceBetweenTwoNodes(root, d1, d2);
-        System.out.println(distance);
+        int d2 = 70;
+        int lca = lca(root, d1, d2);
+        System.out.println(lca);
 
         // levelOrder(root);
         // levelOrderLinewise(root);
     }
 
 }
+ 
