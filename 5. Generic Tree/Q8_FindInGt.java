@@ -87,7 +87,7 @@ public class Q8_FindInGt {
         -1 };
     Node root = construct(arr);
 
-    int data = 1200;
+    int data = 120;
     boolean flag = find(root, data);
     System.out.println(flag);
   }
