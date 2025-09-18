@@ -5,21 +5,9 @@ public class Q5_Mirror {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
+
     Node(int data) {
       this.data = data;
-    }
-  }
-
-  public static void display(Node node) {
-    String str = node.data + " -> ";
-    for (Node child : node.children) {
-      str += child.data + ", ";
-    }
-    str += ".";
-    System.out.println(str);
-
-    for (Node child : node.children) {
-      display(child);
     }
   }
 
@@ -69,6 +57,7 @@ public class Q5_Mirror {
     for (Node child : node.children) {
       mirror(child);
     }
+    // O(n)
     // Collections.reverse(node.children); // this is for arraylists
 
     // Reverse the order of children
@@ -82,7 +71,6 @@ public class Q5_Mirror {
       li++;
       ri--;
     }
-
   }
 
   public static void main(String[] args) throws Exception {
