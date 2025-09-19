@@ -99,3 +99,6 @@ public class Q12_AreGtSimilar {
   }
 
 }
+
+// similar do images ko ek ke upar rakhenge toh match krega
+// mirror match nhi krta
