@@ -6,7 +6,7 @@
 6. remove leaves in gt
 7. linearize a gt, linearize efficient
 8. find in gt
-9. node to root path in gt
+9. node to root path in gt - imp
 10. lca
 11. distance between two nodes
 12. are gt similar
