@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PredecessorAndSuccessorQ {
+public class Q16_Multisolver {
 
   public static class Node {
     int data;
@@ -71,24 +71,43 @@ public class PredecessorAndSuccessorQ {
     return root;
   }
 
-  static Node predecessor;
-  static Node successor;
-  static int state = 0;
+  static int sum = 0;
+  static int max = Integer.MIN_VALUE;
+  static int min = Integer.MAX_VALUE;
+  static int height = -1;
 
-  public static void predecessorAndSuccessor(Node node, int data) {
-    if (state == 0) {
-      if (node.data == data) {
-        state++;
-      } else {
-        predecessor = node;
-      }
-    } else if (state == 1) {
-      successor = node;
-      state++;
-    }
+  public static void multisolver(Node node, int depth) {
+    sum += node.data;
+    if (node.data > max)
+      max = node.data;
+    if (node.data < min)
+      min = node.data;
+    if (depth > height)
+      height = depth;
 
     for (Node child : node.children) {
-      predecessorAndSuccessor(child, data);
+      multisolver(child, depth + 1);
+    }
+  }
+
+  public static class HeapMover {
+    int sum = 0;
+    int max = Integer.MIN_VALUE;
+    int min = Integer.MAX_VALUE;
+    int height = -1;
+  }
+
+  public static void multisolver2(Node node, int depth, HeapMover mover) {
+    mover.sum += node.data;
+    if (node.data > mover.max)
+      mover.max = node.data;
+    if (node.data < mover.min)
+      mover.min = node.data;
+    if (depth > mover.height)
+      mover.height = depth;
+
+    for (Node child : node.children) {
+      multisolver2(child, depth + 1, mover);
     }
   }
 
@@ -96,15 +115,20 @@ public class PredecessorAndSuccessorQ {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root = construct(arr);
-    int data = 110;
+    int data = 120;
+    
+    // multisolver(root, 0);
+    // System.out.println("Sum = " + sum);
+    // System.out.println("Max = " + max);
+    // System.out.println("Min = " + min);
+    // System.out.println("Height = " + height);
 
-    predecessor = null;
-    successor = null;
-    state = 0;
-    predecessorAndSuccessor(root, data);
-
-    System.out.println(predecessor == null ? "Predecessor = Not found" : "Predecessor = " + predecessor.data);
-    System.out.println(successor == null ? "Successor = Not found" : "Successor = " + successor.data);
+    HeapMover mover = new HeapMover();
+    multisolver2(root, 0, mover);
+    System.out.println("Sum = " + mover.sum);
+    System.out.println("Max = " + mover.max);
+    System.out.println("Min = " + mover.min);
+    System.out.println("Height = " + mover.height);
 
   }
 

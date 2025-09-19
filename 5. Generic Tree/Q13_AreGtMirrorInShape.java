@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AreGtMirrorInShapeQ {
+public class Q13_AreGtMirrorInShape {
 
     public static class Node {
         int data;

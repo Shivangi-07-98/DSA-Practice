@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SecondLargestQ {
+public class Q15_PredecessorAndSuccessor {
 
   public static class Node {
     int data;
@@ -71,37 +71,24 @@ public class SecondLargestQ {
     return root;
   }
 
-  static int largest = Integer.MIN_VALUE;
-  static int slargest = Integer.MIN_VALUE;
+  static Node predecessor;
+  static Node successor;
+  static int state = 0;
 
-  public static void secondLargest(Node node) {
-    if (node.data >= largest) {
-      slargest = largest; 
-      largest = node.data; 
-    } else if (node.data > slargest) {
-      slargest = node.data;
+  public static void predecessorAndSuccessor(Node node, int data) {
+    if (state == 0) {
+      if (node.data == data) {
+        state++;
+      } else {
+        predecessor = node;
+      }
+    } else if (state == 1) {
+      successor = node;
+      state++;
     }
 
     for (Node child : node.children) {
-      secondLargest(child);
-    }
-  }
-
-  public static class MoverForSlargest {
-    int largest = Integer.MIN_VALUE;
-    int slargest = Integer.MIN_VALUE;
-  }
-
-  public static void secondLargest2(Node node, MoverForSlargest mover) {
-    if (node.data >= mover.largest) {
-      mover.slargest = mover.largest; 
-      mover.largest = node.data; 
-    } else if (node.data > mover.slargest) {
-      mover.slargest = node.data;
-    }
-
-    for (Node child : node.children) {
-      secondLargest2(child, mover);
+      predecessorAndSuccessor(child, data);
     }
   }
 
@@ -109,13 +96,15 @@ public class SecondLargestQ {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root = construct(arr);
+    int data = 110;
 
-    secondLargest(root);
-    System.out.println(largest + " " + slargest);
+    predecessor = null;
+    successor = null;
+    state = 0;
+    predecessorAndSuccessor(root, data);
 
-    MoverForSlargest mover = new MoverForSlargest();
-    secondLargest2(root, mover);
-    System.out.println(mover.largest + " " + mover.slargest);
+    System.out.println(predecessor == null ? "Predecessor = Not found" : "Predecessor = " + predecessor.data);
+    System.out.println(successor == null ? "Successor = Not found" : "Successor = " + successor.data);
 
   }
 
