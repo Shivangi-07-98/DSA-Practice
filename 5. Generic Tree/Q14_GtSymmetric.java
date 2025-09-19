@@ -89,6 +89,7 @@ public class Q14_GtSymmetric {
     return true;
   }
 
+  // can't use is similar code because tree can be similar but not symmetric
   public static boolean IsSymmetric(Node node) {
     return areMirror(node, node);
   }
