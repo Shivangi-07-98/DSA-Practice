@@ -1,5 +1,5 @@
 import java.util.*;
-public class DiameterQ {
+public class Q21_NodeWithMaximumSubtreeSum {
 
   public static class Node {
     int data;
@@ -70,6 +70,24 @@ public class DiameterQ {
     return root;
   }
 
+  static Node msn = null;
+  static int msum = Integer.MIN_VALUE;
+
+  public static int question(Node node) {
+    int sum = node.data; // 1
+
+    for (Node child: node.children) {
+      int csum = question(child); // 2
+      sum += csum; // 3
+    }
+
+    if (sum > msum) { // 4
+      msum = sum;
+      msn = node;
+    }
+
+    return sum; // 5
+  }
 
   public static void main(String[] args) {
     int[] arr1 = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
@@ -79,6 +97,9 @@ public class DiameterQ {
     int[] arr2 = { -10, 20, 50, -1, -60, -1, -1, 30, -70, -1, 80, 110, -1, -120, -1, -1, -90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root2 = construct(arr2);
+
+    question(root2);
+    System.out.println(msn.data + "__" + msum);
 
   }
 

@@ -1,7 +1,7 @@
 import java.util.*;
 
 // do node traversal without recursion
-public class IterativeTraversalsQ {
+public class Q20_IterativeTraversals {
 
   public static class Node {
     int data;

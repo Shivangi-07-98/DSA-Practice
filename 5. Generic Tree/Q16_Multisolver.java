@@ -115,7 +115,6 @@ public class Q16_Multisolver {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root = construct(arr);
-    int data = 120;
     
     // multisolver(root, 0);
     // System.out.println("Sum = " + sum);
@@ -129,7 +128,6 @@ public class Q16_Multisolver {
     System.out.println("Max = " + mover.max);
     System.out.println("Min = " + mover.min);
     System.out.println("Height = " + mover.height);
-
   }
 
 }
