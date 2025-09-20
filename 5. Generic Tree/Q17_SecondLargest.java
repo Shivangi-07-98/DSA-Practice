@@ -76,7 +76,7 @@ public class Q17_SecondLargest {
 
   public static void secondLargest(Node node) {
     if (node.data >= largest) {
-      slargest = largest;
+      slargest = largest; // this line is imp figure out why
       largest = node.data;
     } else if (node.data > slargest) {
       slargest = node.data;
