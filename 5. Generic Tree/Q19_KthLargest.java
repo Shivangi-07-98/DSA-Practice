@@ -9,7 +9,7 @@ public class Q19_KthLargest {
     Node(int data) {
       this.data = data;
     }
-  } 
+  }
 
   public static void levelOrder(Node root) {
     Queue<Node> queue = new ArrayDeque<Node>();
@@ -119,35 +119,30 @@ public class Q19_KthLargest {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root = construct(arr);
-    // int d = 35;
-
-    // ceilAndFloor1(root, d);
-    // System.out.println("ceil1 = " + ceil + " " + "floor1 = " + floor);
-
-    // MoverForCeilFloor mover = new MoverForCeilFloor();
-    // ceilAndFloor2(root, d, mover);
-    // System.out.println("ceil2 = " + mover.ceil + " " + "floor2 = " + mover.floor);
 
     // kth largest
 
     // int k = 4;
     // int KthLargest = Integer.MAX_VALUE;
     // for(int i = 0; i < k; i++){
-    //   ceilAndFloor1(root, KthLargest);
-    //   KthLargest = floor;
-    //   floor = Integer.MIN_VALUE;
+    // ceilAndFloor1(root, KthLargest);
+    // KthLargest = floor;
+    // floor = Integer.MIN_VALUE; // dry run, 120 ko chorkar saare participate
+    // krenge but update koi nhi kar payega 2nd loop mai kuki hum floor ko reset
+    // krna bhool gye
     // }
     // System.out.println(k + "th Largest = " + KthLargest);
 
     int k = 4;
     int KthLargest = Integer.MAX_VALUE;
-    for(int i = 0; i < k; i++){
+    for (int i = 0; i < k; i++) {
       MoverForCeilFloor mover2 = new MoverForCeilFloor();
       ceilAndFloor2(root, KthLargest, mover2);
       KthLargest = mover2.floor;
       // floor = Integer.MIN_VALUE;
     }
     System.out.println(k + "th Largest = " + KthLargest);
+
   }
 
 }
