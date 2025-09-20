@@ -84,7 +84,7 @@ public class Q15_Multisolver {
       min = node.data;
     if (depth > height)
       height = depth; // dry run this using stack
-      // stack mai child ki loop finish hota h toh toh stack se remove ho jata hai
+    // stack mai child ki loop finish hota h toh toh stack se remove ho jata hai
 
     for (Node child : node.children) {
       multisolver(child, depth + 1);
@@ -116,7 +116,7 @@ public class Q15_Multisolver {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root = construct(arr);
-    
+
     // multisolver(root, 0);
     // System.out.println("Sum = " + sum);
     // System.out.println("Max = " + max);
@@ -132,3 +132,5 @@ public class Q15_Multisolver {
   }
 
 }
+
+//
