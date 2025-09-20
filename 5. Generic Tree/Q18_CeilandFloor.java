@@ -8,7 +8,7 @@ public class Q18_CeilandFloor {
 
     Node(int data) {
       this.data = data;
-    } 
+    }
   }
 
   public static void levelOrder(Node root) {
@@ -88,7 +88,7 @@ public class Q18_CeilandFloor {
     }
 
     for (Node child : node.children) {
-      ceilAndFloor1(child, data); 
+      ceilAndFloor1(child, data);
     }
   }
 
@@ -111,7 +111,7 @@ public class Q18_CeilandFloor {
     }
 
     for (Node child : node.children) {
-      ceilAndFloor2(child, data, mover); 
+      ceilAndFloor2(child, data, mover);
     }
   }
 
@@ -127,7 +127,6 @@ public class Q18_CeilandFloor {
     MoverForCeilFloor mover = new MoverForCeilFloor();
     ceilAndFloor2(root, d, mover);
     System.out.println("ceil2 = " + mover.ceil + " " + "floor2 = " + mover.floor);
-
   }
 
 }
