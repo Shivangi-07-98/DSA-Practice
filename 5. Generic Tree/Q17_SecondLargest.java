@@ -76,8 +76,8 @@ public class Q17_SecondLargest {
 
   public static void secondLargest(Node node) {
     if (node.data >= largest) {
-      slargest = largest; 
-      largest = node.data; 
+      slargest = largest;
+      largest = node.data;
     } else if (node.data > slargest) {
       slargest = node.data;
     }
@@ -94,8 +94,8 @@ public class Q17_SecondLargest {
 
   public static void secondLargest2(Node node, MoverForSlargest mover) {
     if (node.data >= mover.largest) {
-      mover.slargest = mover.largest; 
-      mover.largest = node.data; 
+      mover.slargest = mover.largest;
+      mover.largest = node.data;
     } else if (node.data > mover.slargest) {
       mover.slargest = node.data;
     }
