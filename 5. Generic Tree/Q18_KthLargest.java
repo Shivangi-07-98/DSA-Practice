@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q19_KthLargest {
+public class Q18_KthLargest {
 
   public static class Node {
     int data;

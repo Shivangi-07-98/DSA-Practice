@@ -13,11 +13,11 @@
 13. are gt mirror in shape
 14. are gt symmetric
 15. multisolver
-16. predecessor and successor of an element
-17. second largest
-18. ceil and floor
-19. Kth largest
-20. iterative traversals
+16. second largest
+17. ceil and floor
+18. Kth largest
+19. iterative traversals
+20. predecessor and successor of an element
 21. node with maximum subtree sum
 22. diameter
 23. 

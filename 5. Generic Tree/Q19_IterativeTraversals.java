@@ -1,6 +1,7 @@
 import java.util.*;
 
-public class Q17_SecondLargest {
+// do node traversal without recursion
+public class Q19_IterativeTraversals {
 
   public static class Node {
     int data;
@@ -71,52 +72,60 @@ public class Q17_SecondLargest {
     return root;
   }
 
-  static int largest = Integer.MIN_VALUE;
-  static int slargest = Integer.MIN_VALUE;
-
-  public static void secondLargest(Node node) {
-    if (node.data >= largest) {
-      slargest = largest; // this line is imp figure out why
-      largest = node.data;
-    } else if (node.data > slargest) {
-      slargest = node.data;
-    }
-
+  // ith recursion
+  public static void preorder(Node node) {
+    System.out.print(node.data + " ");
     for (Node child : node.children) {
-      secondLargest(child);
+      preorder(child);
     }
   }
 
-  public static class MoverForSlargest {
-    int largest = Integer.MIN_VALUE;
-    int slargest = Integer.MIN_VALUE;
-  }
-
-  public static void secondLargest2(Node node, MoverForSlargest mover) {
-    if (node.data >= mover.largest) {
-      mover.slargest = mover.largest;
-      mover.largest = node.data;
-    } else if (node.data > mover.slargest) {
-      mover.slargest = node.data;
-    }
-
-    for (Node child : node.children) {
-      secondLargest2(child, mover);
-    }
+  public static class Pair {
+    int state;
+    Node node;
   }
 
   public static void main(String[] args) {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root = construct(arr);
+    // preorder(root);
 
-    secondLargest(root);
-    System.out.println(largest + " " + slargest);
+    String preorder = "";
+    String postorder = "";
+    Stack<Pair> stack = new Stack<>();
 
-    MoverForSlargest mover = new MoverForSlargest();
-    secondLargest2(root, mover);
-    System.out.println(mover.largest + " " + mover.slargest);
+    Pair rootp = new Pair();
+    rootp.state = -1;
+    rootp.node = root;
 
+    stack.push(rootp);
+
+    while (stack.size() > 0) {
+      Pair peekp = stack.peek();
+
+      if (peekp.state == -1) {
+        // pre
+        preorder += peekp.node.data + " ";
+        peekp.state++;
+      } else if (peekp.state >= 0 && peekp.state < peekp.node.children.size()) {
+        // child
+        Pair childp = new Pair();
+        childp.state = -1;
+        childp.node = peekp.node.children.get(peekp.state);
+        stack.push(childp);
+        peekp.state++;
+      } else if (peekp.state == peekp.node.children.size()) {
+        // post
+        postorder += peekp.node.data + " ";
+        peekp.state++;
+      } else { // or peekp.state == peekp.node.children.size() + 1
+        stack.pop();
+      }
+    }
+
+    System.out.println(preorder);
+    System.out.println(postorder);
   }
 
 }

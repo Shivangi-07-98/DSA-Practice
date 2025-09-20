@@ -1,7 +1,6 @@
 import java.util.*;
 
-// do node traversal without recursion
-public class Q20_IterativeTraversals {
+public class Q17_CeilandFloor {
 
   public static class Node {
     int data;
@@ -72,63 +71,64 @@ public class Q20_IterativeTraversals {
     return root;
   }
 
-  // ith recursion
-  public static void preorder(Node node) {
-    System.out.print(node.data + " ");
+  static int ceil = Integer.MAX_VALUE; // smallest among larger values
+  static int floor = Integer.MIN_VALUE; // largest among smaller values
+
+  public static void ceilAndFloor1(Node node, int data) {
+    if (node.data > data) {
+      // valid for ceil
+      if (node.data < ceil) {
+        ceil = node.data;
+      }
+    }
+
+    if (node.data < data) {
+      // valid for floor
+      if (node.data > floor) {
+        floor = node.data;
+      }
+    }
+
     for (Node child : node.children) {
-      preorder(child);
+      ceilAndFloor1(child, data);
     }
   }
 
-  public static class Pair {
-    int state;
-    Node node;
+  public static class MoverForCeilFloor {
+    int ceil = Integer.MAX_VALUE; // smallest among larger values
+    int floor = Integer.MIN_VALUE; // largest among smaller values
+  }
+
+  public static void ceilAndFloor2(Node node, int data, MoverForCeilFloor mover) {
+    if (node.data > data) {
+      if (node.data < mover.ceil) {
+        mover.ceil = node.data;
+      }
+    }
+
+    if (node.data < data) {
+      if (node.data > mover.floor) {
+        mover.floor = node.data;
+      }
+    }
+
+    for (Node child : node.children) {
+      ceilAndFloor2(child, data, mover);
+    }
   }
 
   public static void main(String[] args) {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root = construct(arr);
-    // preorder(root);
+    int d = 35;
 
-    String preorder = "";
-    String postorder = "";
-    Stack<Pair> stack = new Stack<>();
+    ceilAndFloor1(root, d);
+    System.out.println("ceil1 = " + ceil + " " + "floor1 = " + floor);
 
-    Pair rootp = new Pair();
-    rootp.state = -1;
-    rootp.node = root;
-
-    stack.push(rootp);
-
-    while (stack.size() > 0) {
-      Pair peekp = stack.peek();
-
-      if (peekp.state == -1) {
-        // pre
-        preorder += peekp.node.data + " ";
-        peekp.state++;
-      } 
-      else if (peekp.state >= 0 && peekp.state < peekp.node.children.size()) {
-        // child
-        Pair childp = new Pair();
-        childp.state = -1;
-        childp.node = peekp.node.children.get(peekp.state);
-        stack.push(childp);
-        peekp.state++;
-      } 
-      else if (peekp.state == peekp.node.children.size()) {
-        // post
-        postorder += peekp.node.data + " ";
-        peekp.state++;
-      } 
-      else { // or peekp.state == peekp.node.children.size() + 1
-        stack.pop();
-      }
-    }
-
-      System.out.println(preorder);
-      System.out.println(postorder);
-    }
-
+    MoverForCeilFloor mover = new MoverForCeilFloor();
+    ceilAndFloor2(root, d, mover);
+    System.out.println("ceil2 = " + mover.ceil + " " + "floor2 = " + mover.floor);
   }
+
+}
