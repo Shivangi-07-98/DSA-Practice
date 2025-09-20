@@ -76,12 +76,14 @@ public class Q18_CeilandFloor {
 
   public static void ceilAndFloor1(Node node, int data) {
     if (node.data > data) {
+      // valid for ceil
       if (node.data < ceil) {
         ceil = node.data;
       }
     }
 
     if (node.data < data) {
+      // valid for floor
       if (node.data > floor) {
         floor = node.data;
       }
