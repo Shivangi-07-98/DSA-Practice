@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q15_PredecessorAndSuccessor {
+public class Q16_PredecessorAndSuccessor {
 
   public static class Node {
     int data;

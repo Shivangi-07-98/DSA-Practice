@@ -12,8 +12,8 @@
 12. are gt similar
 13. are gt mirror in shape
 14. are gt symmetric
-15. predecessor and successor of an element
-16. multisolver
+15. multisolver
+16. predecessor and successor of an element
 17. second largest
 18. ceil and floor
 19. Kth largest

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q16_Multisolver {
+public class Q15_Multisolver {
 
   public static class Node {
     int data;
@@ -83,7 +83,8 @@ public class Q16_Multisolver {
     if (node.data < min)
       min = node.data;
     if (depth > height)
-      height = depth;
+      height = depth; // dry run this using stack
+      // stack mai child ki loop finish hota h toh toh stack se remove ho jata hai
 
     for (Node child : node.children) {
       multisolver(child, depth + 1);
