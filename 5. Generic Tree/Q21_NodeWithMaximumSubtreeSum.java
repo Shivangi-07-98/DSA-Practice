@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Q21_NodeWithMaximumSubtreeSum {
 
   public static class Node {
@@ -76,7 +77,7 @@ public class Q21_NodeWithMaximumSubtreeSum {
   public static int question(Node node) {
     int sum = node.data; // 1
 
-    for (Node child: node.children) {
+    for (Node child : node.children) {
       int csum = question(child); // 2
       sum += csum; // 3
     }
