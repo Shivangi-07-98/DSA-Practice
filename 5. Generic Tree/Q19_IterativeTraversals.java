@@ -12,6 +12,11 @@ public class Q19_IterativeTraversals {
     }
   }
 
+  public static class Pair {
+    int state;
+    Node node;
+  }
+
   public static void levelOrder(Node root) {
     Queue<Node> queue = new ArrayDeque<Node>();
     queue.add(root);
@@ -72,24 +77,10 @@ public class Q19_IterativeTraversals {
     return root;
   }
 
-  // ith recursion
-  public static void preorder(Node node) {
-    System.out.print(node.data + " ");
-    for (Node child : node.children) {
-      preorder(child);
-    }
-  }
-
-  public static class Pair {
-    int state;
-    Node node;
-  }
-
   public static void main(String[] args) {
     int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1,
         -1 };
     Node root = construct(arr);
-    // preorder(root);
 
     String preorder = "";
     String postorder = "";
