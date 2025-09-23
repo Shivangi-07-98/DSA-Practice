@@ -1,10 +1,15 @@
 import java.util.*;
-public class RemoveLeavesQ {
+public class Q8_TranformToLct {
 
   public static class Node {
     int data;
     Node left;
     Node right;
+    // Node(int data, Node left, Node right){
+    //   this.data = data;
+    //   this.left = left;
+    //   this.right = right;
+    // }
   }
 
   public static class Pair {
@@ -105,16 +110,21 @@ public class RemoveLeavesQ {
     }
   }
 
-  public static Node removeLeaves(Node node){
+  public static Node createLeftCloneTree(Node node){
     if(node == null){
       return null;
     }
-    if(node.left == null && node.right == null){
-      return null;
-    }
-    node.left = removeLeaves(node.left);
-    node.right = removeLeaves(node.right);
+    Node left = createLeftCloneTree(node.left);
+    Node right = createLeftCloneTree(node.right);
+
+    // Node newNode = new Node(node.data, left, null);
+    Node newNode = new Node();
+    newNode.data = node.data;
+    newNode.left = left;
+    newNode.right = null;
     
+    node.left = newNode;
+
     return node;
   }
 
@@ -122,8 +132,9 @@ public class RemoveLeavesQ {
     Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
         87, null, null }; // capital integer array has null
     Node root = construct(arr);
-    Node ans = removeLeaves(root);
-    levelOrderLinewise1(ans);
+    root = createLeftCloneTree(root);
+    // display(root);
+    levelOrderLinewise1(root);
 
   }
 

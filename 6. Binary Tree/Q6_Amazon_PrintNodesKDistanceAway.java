@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Amazon_PrintNodesKDistanceAwayQ {
+public class Q6_Amazon_PrintNodesKDistanceAway {
 
   public static class Node {
     int data;

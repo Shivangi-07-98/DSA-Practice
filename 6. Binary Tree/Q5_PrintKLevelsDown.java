@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PrintKLevelsDownQ {
+public class Q5_PrintKLevelsDown {
 
   public static class Node {
     int data;

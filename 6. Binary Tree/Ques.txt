@@ -2,18 +2,17 @@
 2. level order linewise 4 approaches
 3. Size Sum Maximum Height of a bt
 4. find in bt, node to root path in bt
-
-7. print k levels down
-8. Amazon print nodes k distance away
-9. iterative pre post inorder traversals
-10. transform to left cloned tree
-11. transform to normal from left-cloned tree
-12. remove leaves in bt
-13. print single child nodes
-14. path to leaf from root in range
-15. diameter of a bt
-16. tilt of a bt
-17. is balanced tree
-18. is a binary search tree
-19. largest bst subtree
-20. 
+5. print k levels down
+6. Amazon print nodes k distance away
+7. iterative pre post inorder traversals
+8. transform to left cloned tree
+9. transform to normal from left-cloned tree
+10. remove leaves in bt
+11. print single child nodes
+12. path to leaf from root in range
+13. diameter of a bt
+14. tilt of a bt
+15. is balanced tree
+16. is a binary search tree
+17. largest bst subtree
+18. 

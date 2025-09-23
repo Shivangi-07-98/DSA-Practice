@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class IterativePrePostInorderTraversalsQ {
+public class Q7_IterativePrePostInorderTraversals {
 
   public static class Node {
     int data;

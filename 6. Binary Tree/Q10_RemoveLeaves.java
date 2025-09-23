@@ -1,5 +1,5 @@
 import java.util.*;
-public class TransformToNormalFromLctQ {
+public class Q10_RemoveLeaves {
 
   public static class Node {
     int data;
@@ -105,36 +105,25 @@ public class TransformToNormalFromLctQ {
     }
   }
 
-  // public static Node transformToNormalFromLct(Node node){
-  //   if(node == null){
-  //     return null;
-  //   }
-  //   Node left = transformToNormalFromLct(node.left.left);
-  //   Node right = transformToNormalFromLct(node.right);
-    
-  //   node.left = left;
-
-  //   return node;
-  // }
-
-  public static void transformToNormalFromLct(Node node){
+  public static Node removeLeaves(Node node){
     if(node == null){
-      return;
+      return null;
     }
-    transformToNormalFromLct(node.left.left);
-    transformToNormalFromLct(node.right);
+    if(node.left == null && node.right == null){
+      return null;
+    }
+    node.left = removeLeaves(node.left);
+    node.right = removeLeaves(node.right);
     
-    node.left = node.left.left;
+    return node;
   }
-
 
   public static void main(String[] args) {
     Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
         87, null, null }; // capital integer array has null
     Node root = construct(arr);
-    // root = transformToNormalFromLct(root);
-    // levelOrderLinewise1(root);
-    transformToNormalFromLct(root);
+    Node ans = removeLeaves(root);
+    levelOrderLinewise1(ans);
 
   }
 
