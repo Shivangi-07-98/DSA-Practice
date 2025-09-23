@@ -1,11 +1,10 @@
-1. construct
-2. display
+1. construct, display
 3. Size Sum Maximum Height of a bt
 4. level order linewise 4 approaches
 5. find in bt
 6. node to root path in bt
-7. print k levels down 
-8. Amazon print nodes k distance away 
+7. print k levels down
+8. Amazon print nodes k distance away
 9. iterative pre post inorder traversals
 10. transform to left cloned tree
 11. transform to normal from left-cloned tree
