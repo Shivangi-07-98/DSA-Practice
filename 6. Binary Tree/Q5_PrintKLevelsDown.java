@@ -19,7 +19,6 @@ public class Q5_PrintKLevelsDown {
     Node root = new Node();
     root.data = arr[0];
 
-    // main lines
     Pair rootp = new Pair();
     rootp.node = root;
     rootp.state = 1;
@@ -68,11 +67,11 @@ public class Q5_PrintKLevelsDown {
     return root;
   }
 
-  public static void printKLevelsDown(Node node, int k){
-    if(node == null || k < 0){
+  public static void printKLevelsDown(Node node, int k) {
+    if (node == null || k < 0) {
       return;
     }
-    if(k == 0){
+    if (k == 0) {
       System.out.print(node.data + " ");
       return;
     }
@@ -81,13 +80,11 @@ public class Q5_PrintKLevelsDown {
   }
 
   public static void main(String[] args) {
-    Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
-        87, null, null }; // capital integer array has null
+    Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87,
+        null, null };
     Node root = construct(arr);
-    // display(root);
-    // levelOrderLinewise4(root);
-    printKLevelsDown(root, 3); 
 
+    printKLevelsDown(root, 3);
   }
 
 }
