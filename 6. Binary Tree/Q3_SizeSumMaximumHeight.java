@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SizeSumMaximumHeightQ {
+public class Q3_SizeSumMaximumHeight {
 
     public static class Node {
         int data;
