@@ -9,18 +9,17 @@ public class Q1_BinaryTreeIntro {
   }
 
   public static class Pair {
-    Node node;
     int state;
+    Node node;
   }
 
-  // create stack of pair
+  // pair stack mai push hoga
   public static Node construct(Integer[] arr) {
     Stack<Pair> stack = new Stack<>();
 
     Node root = new Node();
     root.data = arr[0];
 
-    // main lines
     Pair rootp = new Pair();
     rootp.node = root;
     rootp.state = 1;
@@ -66,6 +65,7 @@ public class Q1_BinaryTreeIntro {
         stack.pop();
       }
     }
+
     return root;
   }
 
