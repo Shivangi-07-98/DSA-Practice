@@ -116,7 +116,7 @@ public class Q3_SizeSumMaximumHeight {
 
   public static int max(Node node) {
     if (node == null) {
-      return Integer.MIN_VALUE;
+      return Integer.MIN_VALUE; // for negative nodes
     }
     int lmax = max(node.left);
     int rmax = max(node.right);
