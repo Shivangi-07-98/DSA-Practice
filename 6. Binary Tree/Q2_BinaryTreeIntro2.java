@@ -13,14 +13,12 @@ public class Q2_BinaryTreeIntro2 {
     int state;
   }
 
-  // create stack of pair
   public static Node construct(Integer[] arr) {
     Stack<Pair> stack = new Stack<>();
 
     Node root = new Node();
     root.data = arr[0];
 
-    // main lines
     Pair rootp = new Pair();
     rootp.node = root;
     rootp.state = 1;
@@ -68,7 +66,7 @@ public class Q2_BinaryTreeIntro2 {
     }
     return root;
   }
- 
+
   // leftNode parentNode rightNode
   public static void display(Node node) {
     if (node == null) {
@@ -79,8 +77,8 @@ public class Q2_BinaryTreeIntro2 {
     String rcstr = node.right == null ? ".." : "" + node.right.data;
     System.out.println(lcstr + str + rcstr);
 
-    display(node.left); // will print the entire left tree
-    display(node.right); // will print the entire right tree
+    display(node.left);
+    display(node.right);
   }
 
   public static void levelOrderLinewise1(Node node) {
@@ -141,20 +139,20 @@ public class Q2_BinaryTreeIntro2 {
     while (pq.size() > 0) {
       Node temp = pq.remove();
 
-      if(temp.data == -1){
+      if (temp.data == -1) {
         System.out.println();
-        if(pq.size() > 0){
+        if (pq.size() > 0) {
           pq.add(temp);
         }
         continue; // loop wapas upar pauch jata hai, niche wali lines nhi chlti hai
       }
-        System.out.print(temp.data + " ");
-        if (temp.left != null) {
-          pq.add(temp.left);
-        }
-        if (temp.right != null) {
-          pq.add(temp.right);
-        }
+      System.out.print(temp.data + " ");
+      if (temp.left != null) {
+        pq.add(temp.left);
+      }
+      if (temp.right != null) {
+        pq.add(temp.right);
+      }
     }
 
   }
@@ -170,18 +168,18 @@ public class Q2_BinaryTreeIntro2 {
     while (q.size() > 0) {
       Pair temp = q.remove();
 
-      if(temp.state > state){
+      if (temp.state > state) {
         state = temp.state;
         System.out.println();
       }
       System.out.print(temp.node.data + " ");
-      if(temp.node.left != null){
+      if (temp.node.left != null) {
         Pair leftp = new Pair();
         leftp.node = temp.node.left;
         leftp.state = temp.state + 1;
         q.add(leftp);
       }
-      if(temp.node.right != null){
+      if (temp.node.right != null) {
         Pair rightp = new Pair();
         rightp.node = temp.node.right;
         rightp.state = temp.state + 1;
@@ -191,10 +189,8 @@ public class Q2_BinaryTreeIntro2 {
 
   }
 
-
   public static void main(String[] args) {
-    Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
-        87, null, null }; // capital integer array has null
+    Integer[] arr = { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null };
     Node root = construct(arr);
     // display(root);
     levelOrderLinewise4(root);
