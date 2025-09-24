@@ -1,5 +1,6 @@
 import java.util.*;
-public class PrintSingleChildNodesQ {
+
+public class Q11_PrintSingleChildNodes {
 
   public static class Node {
     int data;
@@ -105,14 +106,13 @@ public class PrintSingleChildNodesQ {
     }
   }
 
-  public static void printSingleChildNodes(Node node, Node parent){
-    if(node == null){
+  public static void printSingleChildNodes(Node node, Node parent) {
+    if (node == null) {
       return;
     }
-    if(parent != null && parent.left == null && parent.right == node){
+    if (parent != null && parent.left == null && parent.right == node) {
       System.out.println(node.data);
-    }
-    else if(parent != null && parent.right == null && parent.left == node){
+    } else if (parent != null && parent.right == null && parent.left == node) {
       System.out.println(node.data);
     }
     printSingleChildNodes(node.left, node);
