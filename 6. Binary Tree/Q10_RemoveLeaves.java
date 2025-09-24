@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Q10_RemoveLeaves {
 
   public static class Node {
@@ -105,16 +106,16 @@ public class Q10_RemoveLeaves {
     }
   }
 
-  public static Node removeLeaves(Node node){
-    if(node == null){
+  public static Node removeLeaves(Node node) {
+    if (node == null) {
       return null;
     }
-    if(node.left == null && node.right == null){
+    if (node.left == null && node.right == null) {
       return null;
     }
     node.left = removeLeaves(node.left);
     node.right = removeLeaves(node.right);
-    
+
     return node;
   }
 
@@ -122,6 +123,7 @@ public class Q10_RemoveLeaves {
     Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
         87, null, null }; // capital integer array has null
     Node root = construct(arr);
+
     Node ans = removeLeaves(root);
     levelOrderLinewise1(ans);
 
