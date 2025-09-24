@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Q9_TransformToNormalFromLct {
 
   public static class Node {
@@ -105,36 +106,55 @@ public class Q9_TransformToNormalFromLct {
     }
   }
 
-  // public static Node transformToNormalFromLct(Node node){
-  //   if(node == null){
-  //     return null;
-  //   }
-  //   Node left = transformToNormalFromLct(node.left.left);
-  //   Node right = transformToNormalFromLct(node.right);
-    
-  //   node.left = left;
+  public static Node createLeftCloneTree(Node node) {
+    if (node == null) {
+      return null;
+    }
+    Node left = createLeftCloneTree(node.left);
+    Node right = createLeftCloneTree(node.right);
 
-  //   return node;
+    // Node newNode = new Node(node.data, left, null);
+    Node newNode = new Node();
+    newNode.data = node.data;
+    newNode.left = left;
+    newNode.right = null;
+
+    node.left = newNode;
+
+    return node;
+  }
+
+  // public static Node transformToNormalFromLct(Node node){
+  // if(node == null){
+  // return null;
+  // }
+  // Node left = transformToNormalFromLct(node.left.left);
+  // Node right = transformToNormalFromLct(node.right);
+
+  // node.left = left;
+
+  // return node;
   // }
 
-  public static void transformToNormalFromLct(Node node){
-    if(node == null){
+  public static void transformToNormalFromLct(Node node) {
+    if (node == null) {
       return;
     }
     transformToNormalFromLct(node.left.left);
     transformToNormalFromLct(node.right);
-    
+
     node.left = node.left.left;
   }
-
 
   public static void main(String[] args) {
     Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
         87, null, null }; // capital integer array has null
     Node root = construct(arr);
+    root = createLeftCloneTree(root);
+    levelOrderLinewise1(root);
     // root = transformToNormalFromLct(root);
-    // levelOrderLinewise1(root);
     transformToNormalFromLct(root);
+    levelOrderLinewise1(root);
 
   }
 

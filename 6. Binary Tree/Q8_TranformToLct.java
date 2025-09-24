@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Q8_TranformToLct {
 
   public static class Node {
@@ -6,9 +7,9 @@ public class Q8_TranformToLct {
     Node left;
     Node right;
     // Node(int data, Node left, Node right){
-    //   this.data = data;
-    //   this.left = left;
-    //   this.right = right;
+    // this.data = data;
+    // this.left = left;
+    // this.right = right;
     // }
   }
 
@@ -110,8 +111,8 @@ public class Q8_TranformToLct {
     }
   }
 
-  public static Node createLeftCloneTree(Node node){
-    if(node == null){
+  public static Node createLeftCloneTree(Node node) {
+    if (node == null) {
       return null;
     }
     Node left = createLeftCloneTree(node.left);
@@ -122,7 +123,7 @@ public class Q8_TranformToLct {
     newNode.data = node.data;
     newNode.left = left;
     newNode.right = null;
-    
+
     node.left = newNode;
 
     return node;
