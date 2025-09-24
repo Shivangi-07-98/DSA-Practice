@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class LargestBstSubtreeQ { 
+public class Q15_IsBalancedTree { 
 
   public static class Node {
     int data;
@@ -116,44 +116,52 @@ public class LargestBstSubtreeQ {
     return height;
   }
 
-// node isbst true when all to the left are smaller and all to the right are greater
-// tree isbst = all nodes isbst true
-  public static class BstTriplet{ 
-    int max = Integer.MIN_VALUE; // -infinity
-    int min = Integer.MAX_VALUE; // +infinity
-    boolean isBst = true;
-    Node lBstNode = null;
-    int lBstSize = 0;
-  }
-  public static BstTriplet IsBst(Node node){
-    if(node == null){
-      return new BstTriplet();
+// left ht               right ht
+// gap abs[lht-rht]      isb = true/false
+
+// is balanced true when abs[left ht-right ht] <= 1
+// node isb 
+// tree isb = all nodes isb true
+  public static boolean treeIsbal = true;
+  public static int IsBalanced(Node node){
+    if (node == null) {
+      return -1; // edges -1, nodes 0
     }
 
-    BstTriplet lt = IsBst(node.left);
-    BstTriplet rt = IsBst(node.right);
+    int lh = IsBalanced(node.left);
+    int rh = IsBalanced(node.right);
+    int ht = Math.max(lh, rh) + 1;
 
-    BstTriplet mt = new BstTriplet();
-    mt.min = Math.min(node.data, Math.min(lt.min, rt.min)); // node.data
-    mt.max = Math.max(node.data, Math.max(lt.max, rt.max)); // node.data
-
-    boolean nodeIsbst = node.data > lt.max && node.data < rt.min; // true
-    mt.isBst = (lt.isBst == true) && (rt.isBst == true) && (nodeIsbst == true); // true
-
-    if(mt.isBst == true){
-      mt.lBstNode = node;
-      mt.lBstSize = lt.lBstSize + rt.lBstSize + 1;
-    }
-    else if(lt.lBstSize > rt.lBstSize){
-      mt.lBstNode = lt.lBstNode;
-      mt.lBstSize = lt.lBstSize;
-    }
-    else{
-      mt.lBstNode = rt.lBstNode;
-      mt.lBstSize = rt.lBstSize;
+    boolean nodeIsbal = Math.abs(lh-rh) <= 1;
+    if(nodeIsbal == false){
+      treeIsbal = false;
     }
     
-    return mt;
+    return ht;
+  }
+
+  public static class BalPair{
+    int ht = -1;
+    boolean isBal = true;
+  }
+  public static BalPair IsBalanced2(Node node){
+    if(node == null){
+      BalPair bp = new BalPair();
+      // bp.ht = -1;
+      // bp.isBal = true;
+      return bp;
+    }
+
+    BalPair lp = IsBalanced2(node.left);
+    BalPair rp = IsBalanced2(node.right);
+
+    BalPair mp = new BalPair();
+    mp.ht = Math.max(lp.ht, rp.ht) + 1; 
+
+    boolean nodeIsbal = Math.abs(lp.ht - rp.ht) <= 1;
+    mp.isBal = (lp.isBal == true) && (rp.isBal == true) && (nodeIsbal == true);
+    
+    return mp;
   }
 
   public static void main(String[] args) {
@@ -161,9 +169,11 @@ public class LargestBstSubtreeQ {
         87, null, null }; // capital integer array has null
     Node root = construct(arr);
 
-    BstTriplet at = IsBst(root);
-    System.out.println(at.lBstNode.data);
-    System.out.println(at.lBstSize);
+    IsBalanced(root);
+    System.out.println(treeIsbal);
+
+    BalPair ap = IsBalanced2(root);
+    System.out.println(ap.isBal);
     
   }
 

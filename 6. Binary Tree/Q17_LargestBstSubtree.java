@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class IsBstQ { 
+public class Q17_LargestBstSubtree { 
 
   public static class Node {
     int data;
@@ -119,9 +119,11 @@ public class IsBstQ {
 // node isbst true when all to the left are smaller and all to the right are greater
 // tree isbst = all nodes isbst true
   public static class BstTriplet{ 
-    int max = Integer.MIN_VALUE;
-    int min = Integer.MAX_VALUE;
+    int max = Integer.MIN_VALUE; // -infinity
+    int min = Integer.MAX_VALUE; // +infinity
     boolean isBst = true;
+    Node lBstNode = null;
+    int lBstSize = 0;
   }
   public static BstTriplet IsBst(Node node){
     if(node == null){
@@ -132,11 +134,24 @@ public class IsBstQ {
     BstTriplet rt = IsBst(node.right);
 
     BstTriplet mt = new BstTriplet();
-    mt.min = Math.min(node.data, Math.min(lt.min, rt.min));
-    mt.max = Math.max(node.data, Math.max(lt.max, rt.max));
+    mt.min = Math.min(node.data, Math.min(lt.min, rt.min)); // node.data
+    mt.max = Math.max(node.data, Math.max(lt.max, rt.max)); // node.data
 
-    boolean nodeIsbst = node.data > lt.max && node.data < rt.min;
-    mt.isBst = (lt.isBst == true) && (rt.isBst == true) && (nodeIsbst == true);
+    boolean nodeIsbst = node.data > lt.max && node.data < rt.min; // true
+    mt.isBst = (lt.isBst == true) && (rt.isBst == true) && (nodeIsbst == true); // true
+
+    if(mt.isBst == true){
+      mt.lBstNode = node;
+      mt.lBstSize = lt.lBstSize + rt.lBstSize + 1;
+    }
+    else if(lt.lBstSize > rt.lBstSize){
+      mt.lBstNode = lt.lBstNode;
+      mt.lBstSize = lt.lBstSize;
+    }
+    else{
+      mt.lBstNode = rt.lBstNode;
+      mt.lBstSize = rt.lBstSize;
+    }
     
     return mt;
   }
@@ -147,7 +162,8 @@ public class IsBstQ {
     Node root = construct(arr);
 
     BstTriplet at = IsBst(root);
-    System.out.println(at.isBst);
+    System.out.println(at.lBstNode.data);
+    System.out.println(at.lBstSize);
     
   }
 

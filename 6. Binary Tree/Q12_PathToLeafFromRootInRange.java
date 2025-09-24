@@ -1,6 +1,5 @@
 import java.util.*;
-
-public class TiltQ { 
+public class Q12_PathToLeafFromRootInRange {
 
   public static class Node {
     int data;
@@ -106,72 +105,27 @@ public class TiltQ {
     }
   }
 
-  public static int height(Node node) {
-    if (node == null) {
-      return -1; // edges -1, nodes 0
-    }
-    int lh = height(node.left);
-    int rh = height(node.right);
-    int height = Math.max(lh, rh) + 1;
-    return height;
-  }
-
-  public static int treetilt = 0;
-  public static int tilt(Node node){
+  public static void pathToLeafFromRootInRange(Node node, String path, int sum, int lo, int hi){
     if(node == null){
-      return 0;
+      return;
     }
-
-    int ls = tilt(node.left);
-    int rs = tilt(node.right);
-
-    int ts = node.data + ls + rs;  
-    int nodetilt = Math.abs(ls-rs);
-    treetilt += nodetilt;
-    
-    return ts;
-  }
-
-  public static class TPair{
-    int sum = 0;
-    int tiltsum = 0;
-  }
-  public static TPair tilt2(Node node){
-    if(node == null){
-      TPair bp = new TPair();
-      bp.sum = 0;
-      bp.tiltsum = 0;
-      return bp;
+    if(node.left == null && node.right == null){
+      sum += node.data;
+      if(sum >= lo && sum <= hi){
+        System.out.println(path + node.data);
+      }
+      return;
     }
-
-    TPair lp = tilt2(node.left);
-    TPair rp = tilt2(node.right);
-
-    TPair mp = new TPair();
-    mp.sum = node.data + lp.sum + rp.sum; 
-
-    int nodetilt = Math.abs(lp.sum - rp.sum);
-    mp.tiltsum += nodetilt + lp.tiltsum + rp.tiltsum;
-    
-    return mp;
+    pathToLeafFromRootInRange(node.left, path + node.data + " ", sum + node.data, lo, hi);
+    pathToLeafFromRootInRange(node.right, path + node.data + " ", sum + node.data, lo, hi);
   }
 
   public static void main(String[] args) {
     Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
         87, null, null }; // capital integer array has null
     Node root = construct(arr);
+    pathToLeafFromRootInRange(root, "", 0, 150, 250);
 
-    tilt(root);
-    System.out.println(treetilt);
-
-    TPair ap = tilt2(root);
-    System.out.println(ap.tiltsum);
-    
   }
 
 }
-
-// left sum        right sum
-// node tilt       total sum (node + leftsum + rightsum)
-
-// node tilt = absolute[leftsum - rightsum]

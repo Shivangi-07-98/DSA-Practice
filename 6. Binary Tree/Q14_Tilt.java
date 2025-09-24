@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class IsBalancedTreeQ { 
+public class Q14_Tilt { 
 
   public static class Node {
     int data;
@@ -116,50 +116,42 @@ public class IsBalancedTreeQ {
     return height;
   }
 
-// left ht               right ht
-// gap abs[lht-rht]      isb = true/false
-
-// is balanced true when abs[left ht-right ht] <= 1
-// node isb 
-// tree isb = all nodes isb true
-  public static boolean treeIsbal = true;
-  public static int IsBalanced(Node node){
-    if (node == null) {
-      return -1; // edges -1, nodes 0
-    }
-
-    int lh = IsBalanced(node.left);
-    int rh = IsBalanced(node.right);
-    int ht = Math.max(lh, rh) + 1;
-
-    boolean nodeIsbal = Math.abs(lh-rh) <= 1;
-    if(nodeIsbal == false){
-      treeIsbal = false;
-    }
-    
-    return ht;
-  }
-
-  public static class BalPair{
-    int ht = -1;
-    boolean isBal = true;
-  }
-  public static BalPair IsBalanced2(Node node){
+  public static int treetilt = 0;
+  public static int tilt(Node node){
     if(node == null){
-      BalPair bp = new BalPair();
-      // bp.ht = -1;
-      // bp.isBal = true;
+      return 0;
+    }
+
+    int ls = tilt(node.left);
+    int rs = tilt(node.right);
+
+    int ts = node.data + ls + rs;  
+    int nodetilt = Math.abs(ls-rs);
+    treetilt += nodetilt;
+    
+    return ts;
+  }
+
+  public static class TPair{
+    int sum = 0;
+    int tiltsum = 0;
+  }
+  public static TPair tilt2(Node node){
+    if(node == null){
+      TPair bp = new TPair();
+      bp.sum = 0;
+      bp.tiltsum = 0;
       return bp;
     }
 
-    BalPair lp = IsBalanced2(node.left);
-    BalPair rp = IsBalanced2(node.right);
+    TPair lp = tilt2(node.left);
+    TPair rp = tilt2(node.right);
 
-    BalPair mp = new BalPair();
-    mp.ht = Math.max(lp.ht, rp.ht) + 1; 
+    TPair mp = new TPair();
+    mp.sum = node.data + lp.sum + rp.sum; 
 
-    boolean nodeIsbal = Math.abs(lp.ht - rp.ht) <= 1;
-    mp.isBal = (lp.isBal == true) && (rp.isBal == true) && (nodeIsbal == true);
+    int nodetilt = Math.abs(lp.sum - rp.sum);
+    mp.tiltsum += nodetilt + lp.tiltsum + rp.tiltsum;
     
     return mp;
   }
@@ -169,12 +161,17 @@ public class IsBalancedTreeQ {
         87, null, null }; // capital integer array has null
     Node root = construct(arr);
 
-    IsBalanced(root);
-    System.out.println(treeIsbal);
+    tilt(root);
+    System.out.println(treetilt);
 
-    BalPair ap = IsBalanced2(root);
-    System.out.println(ap.isBal);
+    TPair ap = tilt2(root);
+    System.out.println(ap.tiltsum);
     
   }
 
 }
+
+// left sum        right sum
+// node tilt       total sum (node + leftsum + rightsum)
+
+// node tilt = absolute[leftsum - rightsum]

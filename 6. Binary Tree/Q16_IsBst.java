@@ -1,8 +1,6 @@
 import java.util.*;
 
-// maximum number of edges between any two nodes
-// lh + rh + 2 har node ke liye not just root
-public class DiameterQ {
+public class Q16_IsBst { 
 
   public static class Node {
     int data;
@@ -118,79 +116,29 @@ public class DiameterQ {
     return height;
   }
 
-  // in heap
-  // o(n)
-  static int dia = 0;
-  public static int diameter1(Node node) {
-    if (node == null) {
-      return -1; // edges -1, nodes 0
-    }
-    int lh = diameter1(node.left);
-    int rh = diameter1(node.right);
-    int height = Math.max(lh, rh) + 1;
-
-    if(lh + rh + 2 > dia){
-      dia = lh + rh + 2;
-    }
-
-    return height;
+// node isbst true when all to the left are smaller and all to the right are greater
+// tree isbst = all nodes isbst true
+  public static class BstTriplet{ 
+    int max = Integer.MIN_VALUE;
+    int min = Integer.MAX_VALUE;
+    boolean isBst = true;
   }
-
-  // o(n)
-  public static class DiaMover{
-    int dia = 0;
-  }
-  public static int diameter2(Node node, DiaMover dm) {
-    if (node == null) {
-      return -1;
-    }
-    int lh = diameter2(node.left, dm);
-    int rh = diameter2(node.right, dm);
-    int height = Math.max(lh, rh) + 1;
-
-    if(lh + rh + 2 > dm.dia){
-      dm.dia = lh + rh + 2;
+  public static BstTriplet IsBst(Node node){
+    if(node == null){
+      return new BstTriplet();
     }
 
-    return height;
-  }
+    BstTriplet lt = IsBst(node.left);
+    BstTriplet rt = IsBst(node.right);
 
-  // o(n2)
-  public static int diameter3(Node node) {
-    if (node == null) {
-      return 0;
-    }
-    int lh = height(node.left);
-    int rh = height(node.right);
-    int rdist = lh + rh + 2;
+    BstTriplet mt = new BstTriplet();
+    mt.min = Math.min(node.data, Math.min(lt.min, rt.min));
+    mt.max = Math.max(node.data, Math.max(lt.max, rt.max));
 
-    int ld = diameter3(node.left);
-    int rd = diameter3(node.right);
-
-    int dia = Math.max(rdist, Math.max(ld, rd));
-    return dia;
-  }
-
-  // o(n)
-  public static class DiaPair{
-    int ht = -1;
-    int dia = 0;
-  }
-  public static DiaPair diameter4(Node node) {
-    if (node == null) {
-      DiaPair bp = new DiaPair();
-      bp.ht = -1;
-      bp.dia = 0;
-      return bp;
-    }
-    DiaPair lp = diameter4(node.left);
-    DiaPair rp = diameter4(node.right);
-
-    DiaPair mp = new DiaPair();
-    mp.dia = Math.max(lp.ht + rp.ht + 2, Math.max(lp.dia, rp.dia));
-    mp.ht = Math.max(lp.ht, rp.ht) + 1;
+    boolean nodeIsbst = node.data > lt.max && node.data < rt.min;
+    mt.isBst = (lt.isBst == true) && (rt.isBst == true) && (nodeIsbst == true);
     
-    return mp;
+    return mt;
   }
 
   public static void main(String[] args) {
@@ -198,21 +146,9 @@ public class DiameterQ {
         87, null, null }; // capital integer array has null
     Node root = construct(arr);
 
-    // int height = 0;
-    int height = diameter1(root);
-    System.out.println(dia);
-
-    DiaMover dm = new DiaMover();
-    diameter2(root, dm);
-    System.out.println(dm.dia);
-
-    int val = diameter3(root);
-    System.out.println(val);
-
-    DiaPair dp = diameter4(root);
-    // System.out.println(dp.ht);
-    System.out.println(dp.dia);
-
+    BstTriplet at = IsBst(root);
+    System.out.println(at.isBst);
+    
   }
 
 }
