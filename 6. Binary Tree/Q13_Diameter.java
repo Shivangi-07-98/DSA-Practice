@@ -121,6 +121,7 @@ public class Q13_Diameter {
   // in heap
   // o(n)
   static int dia = 0;
+
   public static int diameter1(Node node) {
     if (node == null) {
       return -1; // edges -1, nodes 0
@@ -129,7 +130,7 @@ public class Q13_Diameter {
     int rh = diameter1(node.right);
     int height = Math.max(lh, rh) + 1;
 
-    if(lh + rh + 2 > dia){
+    if (lh + rh + 2 > dia) {
       dia = lh + rh + 2;
     }
 
@@ -137,9 +138,10 @@ public class Q13_Diameter {
   }
 
   // o(n)
-  public static class DiaMover{
+  public static class DiaMover {
     int dia = 0;
   }
+
   public static int diameter2(Node node, DiaMover dm) {
     if (node == null) {
       return -1;
@@ -148,7 +150,7 @@ public class Q13_Diameter {
     int rh = diameter2(node.right, dm);
     int height = Math.max(lh, rh) + 1;
 
-    if(lh + rh + 2 > dm.dia){
+    if (lh + rh + 2 > dm.dia) {
       dm.dia = lh + rh + 2;
     }
 
@@ -172,10 +174,11 @@ public class Q13_Diameter {
   }
 
   // o(n)
-  public static class DiaPair{
+  public static class DiaPair {
     int ht = -1;
     int dia = 0;
   }
+
   public static DiaPair diameter4(Node node) {
     if (node == null) {
       DiaPair bp = new DiaPair();
@@ -189,7 +192,7 @@ public class Q13_Diameter {
     DiaPair mp = new DiaPair();
     mp.dia = Math.max(lp.ht + rp.ht + 2, Math.max(lp.dia, rp.dia));
     mp.ht = Math.max(lp.ht, rp.ht) + 1;
-    
+
     return mp;
   }
 

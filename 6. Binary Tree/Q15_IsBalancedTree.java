@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q15_IsBalancedTree { 
+public class Q15_IsBalancedTree {
 
   public static class Node {
     int data;
@@ -116,14 +116,15 @@ public class Q15_IsBalancedTree {
     return height;
   }
 
-// left ht               right ht
-// gap abs[lht-rht]      isb = true/false
+  // left ht right ht
+  // gap abs[lht-rht] isb = true/false
 
-// is balanced true when abs[left ht-right ht] <= 1
-// node isb 
-// tree isb = all nodes isb true
+  // is balanced true when abs[left ht-right ht] <= 1
+  // node isb
+  // tree isb = all nodes isb true
   public static boolean treeIsbal = true;
-  public static int IsBalanced(Node node){
+
+  public static int IsBalanced(Node node) {
     if (node == null) {
       return -1; // edges -1, nodes 0
     }
@@ -132,20 +133,21 @@ public class Q15_IsBalancedTree {
     int rh = IsBalanced(node.right);
     int ht = Math.max(lh, rh) + 1;
 
-    boolean nodeIsbal = Math.abs(lh-rh) <= 1;
-    if(nodeIsbal == false){
+    boolean nodeIsbal = Math.abs(lh - rh) <= 1;
+    if (nodeIsbal == false) {
       treeIsbal = false;
     }
-    
+
     return ht;
   }
 
-  public static class BalPair{
+  public static class BalPair {
     int ht = -1;
     boolean isBal = true;
   }
-  public static BalPair IsBalanced2(Node node){
-    if(node == null){
+
+  public static BalPair IsBalanced2(Node node) {
+    if (node == null) {
       BalPair bp = new BalPair();
       // bp.ht = -1;
       // bp.isBal = true;
@@ -156,11 +158,11 @@ public class Q15_IsBalancedTree {
     BalPair rp = IsBalanced2(node.right);
 
     BalPair mp = new BalPair();
-    mp.ht = Math.max(lp.ht, rp.ht) + 1; 
+    mp.ht = Math.max(lp.ht, rp.ht) + 1;
 
     boolean nodeIsbal = Math.abs(lp.ht - rp.ht) <= 1;
     mp.isBal = (lp.isBal == true) && (rp.isBal == true) && (nodeIsbal == true);
-    
+
     return mp;
   }
 
@@ -174,7 +176,7 @@ public class Q15_IsBalancedTree {
 
     BalPair ap = IsBalanced2(root);
     System.out.println(ap.isBal);
-    
+
   }
 
 }

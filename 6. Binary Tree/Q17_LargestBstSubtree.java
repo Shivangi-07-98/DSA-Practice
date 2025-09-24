@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q17_LargestBstSubtree { 
+public class Q17_LargestBstSubtree {
 
   public static class Node {
     int data;
@@ -116,17 +116,19 @@ public class Q17_LargestBstSubtree {
     return height;
   }
 
-// node isbst true when all to the left are smaller and all to the right are greater
-// tree isbst = all nodes isbst true
-  public static class BstTriplet{ 
+  // node isbst true when all to the left are smaller and all to the right are
+  // greater
+  // tree isbst = all nodes isbst true
+  public static class BstTriplet {
     int max = Integer.MIN_VALUE; // -infinity
     int min = Integer.MAX_VALUE; // +infinity
     boolean isBst = true;
     Node lBstNode = null;
     int lBstSize = 0;
   }
-  public static BstTriplet IsBst(Node node){
-    if(node == null){
+
+  public static BstTriplet IsBst(Node node) {
+    if (node == null) {
       return new BstTriplet();
     }
 
@@ -140,19 +142,17 @@ public class Q17_LargestBstSubtree {
     boolean nodeIsbst = node.data > lt.max && node.data < rt.min; // true
     mt.isBst = (lt.isBst == true) && (rt.isBst == true) && (nodeIsbst == true); // true
 
-    if(mt.isBst == true){
+    if (mt.isBst == true) {
       mt.lBstNode = node;
       mt.lBstSize = lt.lBstSize + rt.lBstSize + 1;
-    }
-    else if(lt.lBstSize > rt.lBstSize){
+    } else if (lt.lBstSize > rt.lBstSize) {
       mt.lBstNode = lt.lBstNode;
       mt.lBstSize = lt.lBstSize;
-    }
-    else{
+    } else {
       mt.lBstNode = rt.lBstNode;
       mt.lBstSize = rt.lBstSize;
     }
-    
+
     return mt;
   }
 
@@ -164,7 +164,7 @@ public class Q17_LargestBstSubtree {
     BstTriplet at = IsBst(root);
     System.out.println(at.lBstNode.data);
     System.out.println(at.lBstSize);
-    
+
   }
 
 }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q16_IsBst { 
+public class Q16_IsBst {
 
   public static class Node {
     int data;
@@ -116,15 +116,17 @@ public class Q16_IsBst {
     return height;
   }
 
-// node isbst true when all to the left are smaller and all to the right are greater
-// tree isbst = all nodes isbst true
-  public static class BstTriplet{ 
+  // node isbst true when all to the left are smaller and all to the right are
+  // greater
+  // tree isbst = all nodes isbst true
+  public static class BstTriplet {
     int max = Integer.MIN_VALUE;
     int min = Integer.MAX_VALUE;
     boolean isBst = true;
   }
-  public static BstTriplet IsBst(Node node){
-    if(node == null){
+
+  public static BstTriplet IsBst(Node node) {
+    if (node == null) {
       return new BstTriplet();
     }
 
@@ -137,7 +139,7 @@ public class Q16_IsBst {
 
     boolean nodeIsbst = node.data > lt.max && node.data < rt.min;
     mt.isBst = (lt.isBst == true) && (rt.isBst == true) && (nodeIsbst == true);
-    
+
     return mt;
   }
 
@@ -148,7 +150,7 @@ public class Q16_IsBst {
 
     BstTriplet at = IsBst(root);
     System.out.println(at.isBst);
-    
+
   }
 
 }

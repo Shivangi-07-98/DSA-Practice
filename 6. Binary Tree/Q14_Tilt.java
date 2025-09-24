@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Q14_Tilt { 
+public class Q14_Tilt {
 
   public static class Node {
     int data;
@@ -117,27 +117,29 @@ public class Q14_Tilt {
   }
 
   public static int treetilt = 0;
-  public static int tilt(Node node){
-    if(node == null){
+
+  public static int tilt(Node node) {
+    if (node == null) {
       return 0;
     }
 
     int ls = tilt(node.left);
     int rs = tilt(node.right);
 
-    int ts = node.data + ls + rs;  
-    int nodetilt = Math.abs(ls-rs);
+    int ts = node.data + ls + rs;
+    int nodetilt = Math.abs(ls - rs);
     treetilt += nodetilt;
-    
+
     return ts;
   }
 
-  public static class TPair{
+  public static class TPair {
     int sum = 0;
     int tiltsum = 0;
   }
-  public static TPair tilt2(Node node){
-    if(node == null){
+
+  public static TPair tilt2(Node node) {
+    if (node == null) {
       TPair bp = new TPair();
       bp.sum = 0;
       bp.tiltsum = 0;
@@ -148,11 +150,11 @@ public class Q14_Tilt {
     TPair rp = tilt2(node.right);
 
     TPair mp = new TPair();
-    mp.sum = node.data + lp.sum + rp.sum; 
+    mp.sum = node.data + lp.sum + rp.sum;
 
     int nodetilt = Math.abs(lp.sum - rp.sum);
     mp.tiltsum += nodetilt + lp.tiltsum + rp.tiltsum;
-    
+
     return mp;
   }
 
@@ -166,12 +168,12 @@ public class Q14_Tilt {
 
     TPair ap = tilt2(root);
     System.out.println(ap.tiltsum);
-    
+
   }
 
 }
 
-// left sum        right sum
-// node tilt       total sum (node + leftsum + rightsum)
+// left sum right sum
+// node tilt total sum (node + leftsum + rightsum)
 
 // node tilt = absolute[leftsum - rightsum]
