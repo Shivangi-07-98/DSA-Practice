@@ -7,7 +7,7 @@
 7. iterative pre post inorder traversals
 8. transform to left cloned tree
 9. transform to normal from left-cloned tree
-10. remove leaves in bt
+10. remove leaves
 11. print single child nodes
 12. path to leaf from root in range
 13. diameter of a bt

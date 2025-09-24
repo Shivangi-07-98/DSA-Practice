@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Q12_PathToLeafFromRootInRange {
 
   public static class Node {
@@ -105,13 +106,13 @@ public class Q12_PathToLeafFromRootInRange {
     }
   }
 
-  public static void pathToLeafFromRootInRange(Node node, String path, int sum, int lo, int hi){
-    if(node == null){
+  public static void pathToLeafFromRootInRange(Node node, String path, int sum, int lo, int hi) {
+    if (node == null) {
       return;
     }
-    if(node.left == null && node.right == null){
+    if (node.left == null && node.right == null) {
       sum += node.data;
-      if(sum >= lo && sum <= hi){
+      if (sum >= lo && sum <= hi) {
         System.out.println(path + node.data);
       }
       return;
