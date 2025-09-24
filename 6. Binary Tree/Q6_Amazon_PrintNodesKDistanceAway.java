@@ -67,7 +67,7 @@ public class Q6_Amazon_PrintNodesKDistanceAway {
     }
     return root;
   }
-  
+
   public static ArrayList<Node> nodeToRootPath(Node node, int data) {
     if (node == null) {
       return new ArrayList<>();
@@ -93,21 +93,21 @@ public class Q6_Amazon_PrintNodesKDistanceAway {
     return new ArrayList<>();
   }
 
-  public static void printKLevelsDown(Node node, int k, Node blocker){
-    if(node == null || k < 0 || node == blocker){
+  public static void printKLevelsDown(Node node, int k, Node blocker) {
+    if (node == null || k < 0 || node == blocker) {
       return;
     }
-    if(k == 0){
+    if (k == 0) {
       System.out.print(node.data + " ");
       return;
     }
     printKLevelsDown(node.left, k - 1, blocker);
     printKLevelsDown(node.right, k - 1, blocker);
   }
-  
-  public static void printKNodesFar(Node node, int data, int k){
+
+  public static void printKNodesFar(Node node, int data, int k) {
     ArrayList<Node> n2rpath = nodeToRootPath(node, data);
-    for(int i = 0; i < n2rpath.size(); i++){
+    for (int i = 0; i < n2rpath.size(); i++) {
       // printKLevelsDown(node, k, node);
       printKLevelsDown(n2rpath.get(i), k - i, i > 0 ? n2rpath.get(i - 1) : null);
     }
