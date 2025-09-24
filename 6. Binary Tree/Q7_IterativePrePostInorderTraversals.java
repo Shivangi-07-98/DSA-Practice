@@ -11,7 +11,6 @@ public class Q7_IterativePrePostInorderTraversals {
   public static class Pair {
     Node node;
     int state;
-
   }
 
   public static Node construct(Integer[] arr) {
@@ -20,7 +19,6 @@ public class Q7_IterativePrePostInorderTraversals {
     Node root = new Node();
     root.data = arr[0];
 
-    // main lines
     Pair rootp = new Pair();
     rootp.node = root;
     rootp.state = 1;
@@ -69,8 +67,8 @@ public class Q7_IterativePrePostInorderTraversals {
     return root;
   }
 
-  public static void preOrder(Node node){
-    if(node == null){
+  public static void preOrder(Node node) {
+    if (node == null) {
       return;
     }
     System.out.print(node.data + " ");
@@ -78,8 +76,8 @@ public class Q7_IterativePrePostInorderTraversals {
     preOrder(node.right);
   }
 
-  public static void inOrder(Node node){
-    if(node == null){
+  public static void inOrder(Node node) {
+    if (node == null) {
       return;
     }
     inOrder(node.left);
@@ -87,8 +85,8 @@ public class Q7_IterativePrePostInorderTraversals {
     inOrder(node.right);
   }
 
-  public static void postOrder(Node node){
-    if(node == null){
+  public static void postOrder(Node node) {
+    if (node == null) {
       return;
     }
     postOrder(node.left);
@@ -96,7 +94,7 @@ public class Q7_IterativePrePostInorderTraversals {
     System.out.print(node.data + " ");
   }
 
-  public static void recursivePrePostInTraversal(Node node){
+  public static void recursivePrePostInTraversal(Node node) {
     preOrder(node);
     System.out.println();
     inOrder(node);
@@ -107,13 +105,14 @@ public class Q7_IterativePrePostInorderTraversals {
   public static class TPair {
     Node node;
     int state;
-    TPair(Node node, int state){
+
+    TPair(Node node, int state) {
       this.node = node;
       this.state = state;
     }
   }
 
-  public static void iterativePrePostInTraversal(Node node){
+  public static void iterativePrePostInTraversal(Node node) {
     Stack<TPair> stack = new Stack<>();
     TPair rootp = new TPair(node, 1);
     stack.push(rootp);
@@ -125,28 +124,26 @@ public class Q7_IterativePrePostInorderTraversals {
     while (stack.size() > 0) {
       TPair top = stack.peek();
 
-      if(top.state == 1){
+      if (top.state == 1) {
         // pre = pre, left
         pre += top.node.data + " ";
-        if(top.node.left != null){
+        if (top.node.left != null) {
           TPair leftp = new TPair(top.node.left, 1);
           stack.push(leftp);
         }
-      }
-      else if(top.state == 2){
+      } else if (top.state == 2) {
         // in = in, right
         in += top.node.data + " ";
-        if(top.node.right != null){
+        if (top.node.right != null) {
           TPair rightp = new TPair(top.node.right, 1);
           stack.push(rightp);
         }
-      }
-      else{
+      } else {
         // post = post, pop
         post += top.node.data + " ";
         stack.pop();
       }
-      
+
       top.state++;
     }
 
@@ -155,10 +152,9 @@ public class Q7_IterativePrePostInorderTraversals {
     System.out.println(post);
   }
 
-
   public static void main(String[] args) {
     Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
-        87, null, null }; // capital integer array has null
+        87, null, null };
     Node root = construct(arr);
     // recursivePrePostInTraversal(root);
     iterativePrePostInTraversal(root);
