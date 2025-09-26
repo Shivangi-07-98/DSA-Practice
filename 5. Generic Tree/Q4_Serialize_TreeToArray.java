@@ -59,17 +59,16 @@ public class Q4_Serialize_TreeToArray {
   }
 
   public static void main(String[] args) {
-    int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1 };
+    // int[] arr = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, 100, -1, -1, -1 };
+    int[] arr = { 10, 20, -1, 30, 50, -1, 60, -1, -1, 40, -1, -1};
     Node root = construct(arr);
+    levelOrderLinewise(root);
 
     ArrayList<Integer> list = new ArrayList<>();
     serialize(root, list);
     System.out.println(list);
     // [10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1,
     // -1, 40, 100, -1, -1, -1]
-
-    // levelOrder(root);
-    // levelOrderLinewise(root);
   }
 
 }
