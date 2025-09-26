@@ -168,12 +168,11 @@ public class Q2_SizeMaxHeight {
     Node root = construct(arr);
 
     int sz = size(root);
-    System.out.println("size is " + sz);
-
     int max = max(root);
-    System.out.println("max is " + max);
-
     int height = height(root);
+
+    System.out.println("size is " + sz);
+    System.out.println("max is " + max);
     System.out.println("height is " + height);
 
     // levelOrder(root);
