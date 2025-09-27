@@ -5,6 +5,7 @@ public class Q7_Linearize {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
+
     Node(int data) {
       this.data = data;
     }
@@ -114,7 +115,7 @@ public class Q7_Linearize {
         -1 };
     Node root = construct(arr);
 
-    // myLinearize(root);
+    // linearize(root);
     // levelOrderLinewise(root);
 
     linearizeEfficient(root);
