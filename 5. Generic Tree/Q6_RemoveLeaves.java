@@ -5,6 +5,7 @@ public class Q6_RemoveLeaves {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
+
     Node(int data) {
       this.data = data;
     }
@@ -53,7 +54,6 @@ public class Q6_RemoveLeaves {
   }
 
   public static void removeLeaves(Node node) {
-    // remove your own leaves
     // deleting in node pre
     for (int i = node.children.size() - 1; i >= 0; i--) {
       Node child = node.children.get(i);
@@ -62,7 +62,6 @@ public class Q6_RemoveLeaves {
       }
     }
 
-    // request the children
     for (Node child : node.children) {
       removeLeaves(child);
     }
@@ -75,6 +74,7 @@ public class Q6_RemoveLeaves {
 
     levelOrderLinewise(root);
     removeLeaves(root);
+    System.out.println();
     levelOrderLinewise(root);
   }
 
