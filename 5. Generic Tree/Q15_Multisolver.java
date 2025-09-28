@@ -84,7 +84,7 @@ public class Q15_Multisolver {
       min = node.data;
     if (depth > height)
       height = depth; // dry run this using stack
-    // stack mai child ki loop finish hota h toh toh stack se remove ho jata hai
+    // stack mai child ki loop finish hota h toh stack se remove ho jata hai
 
     for (Node child : node.children) {
       multisolver(child, depth + 1);
