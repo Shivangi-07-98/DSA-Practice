@@ -131,9 +131,9 @@ public class Q2_BinaryTreeIntro2 {
 
   public static void levelOrderLinewise3(Node node) {
     ArrayDeque<Node> pq = new ArrayDeque<>();
-    pq.add(node);
     Node val = new Node();
     val.data = -1;
+    pq.add(node);
     pq.add(val);
 
     while (pq.size() > 0) {
@@ -146,7 +146,9 @@ public class Q2_BinaryTreeIntro2 {
         }
         continue; // loop wapas upar pauch jata hai, niche wali lines nhi chlti hai
       }
+
       System.out.print(temp.data + " ");
+
       if (temp.left != null) {
         pq.add(temp.left);
       }
@@ -159,6 +161,7 @@ public class Q2_BinaryTreeIntro2 {
 
   public static void levelOrderLinewise4(Node node) {
     ArrayDeque<Pair> q = new ArrayDeque<>();
+
     Pair rp = new Pair();
     rp.node = node;
     rp.state = 1;
@@ -172,7 +175,9 @@ public class Q2_BinaryTreeIntro2 {
         state = temp.state;
         System.out.println();
       }
+
       System.out.print(temp.node.data + " ");
+      
       if (temp.node.left != null) {
         Pair leftp = new Pair();
         leftp.node = temp.node.left;
@@ -197,3 +202,8 @@ public class Q2_BinaryTreeIntro2 {
   }
 
 }
+
+// The continue statement skips the rest of the current iteration and immediately jumps back to the beginning of the while loop. It does NOT exit the while loop
+// Skip the rest of this iteration, go to next iteration
+
+// So yes, you're absolutely right - without pq.remove(), the continue would create an infinite loop because we'd never advance past the -1 marker!

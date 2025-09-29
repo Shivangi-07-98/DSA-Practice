@@ -19,7 +19,6 @@ public class Q4_Find_NodeToRootPathQ {
     Node root = new Node();
     root.data = arr[0];
 
-    // main lines
     Pair rootp = new Pair();
     rootp.node = root;
     rootp.state = 1;
