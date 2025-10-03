@@ -116,11 +116,7 @@ public class Q15_IsBalancedTree {
     return height;
   }
 
-  // left ht right ht
-  // gap abs[lht-rht] isb = true/false
-
   // is balanced true when abs[left ht-right ht] <= 1
-  // node isb
   // tree isb = all nodes isb true
   public static boolean treeIsbal = true;
 
@@ -168,7 +164,7 @@ public class Q15_IsBalancedTree {
 
   public static void main(String[] args) {
     Integer[] arr = new Integer[] { 50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null,
-        87, null, null }; // capital integer array has null
+        87, null, null };
     Node root = construct(arr);
 
     IsBalanced(root);
