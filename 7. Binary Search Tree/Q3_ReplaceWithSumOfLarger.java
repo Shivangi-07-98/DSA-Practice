@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ReplaceWithSumOfLargerQ {
+public class Q3_ReplaceWithSumOfLarger {
 
   public static class Node {
     int data;
@@ -53,11 +53,9 @@ public class ReplaceWithSumOfLargerQ {
   public static void main(String[] args) {
     int[] arr = { 10, 20, 30, 50, 60, 70, 80 }; 
     Node root = construct(arr, 0, arr.length - 1);
-    // display(root);
 
     rwsol(root);
     display(root);
-
   }
 
 }

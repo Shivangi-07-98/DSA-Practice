@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class SizeSumMaxMinFindQ { 
+public class Q2_SizeSumMaxMinFind { 
 
   public static class Node {
     int data;

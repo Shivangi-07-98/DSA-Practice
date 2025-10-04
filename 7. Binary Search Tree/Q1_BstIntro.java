@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class BstIntro {
+public class Q1_BstIntro {
 
   public static class Node {
     int data;
@@ -38,10 +38,25 @@ public class BstIntro {
   }
 
   public static void main(String[] args) {
-    int[] arr = { 12, 25, 37, 50, 62, 75, 87 }; 
+    int[] arr = { 12, 25, 37, 50, 62, 75, 87 }; // these are inorder
     Node root = construct(arr, 0, arr.length - 1);
     display(root);
 
   }
 
 }
+
+// bad construct bad complexity h = n and O(n)
+// we want O(log(n))
+
+/*
+all left node are small, all right node are big is bst
+eg-
+             50
+      25           75
+   12   37      62    87
+       30 40   60 70 
+
+see all left node are smaller 
+and all right node are bigger
+*/
