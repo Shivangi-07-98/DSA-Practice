@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class RemoveNodeFromBstQ { 
+public class Q8_RemoveNodeFromBst { 
 
   public static class Node {
     int data;

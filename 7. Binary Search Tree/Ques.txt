@@ -1,7 +1,7 @@
 1. construct
 2. size, sum, max, min, find in bst
 3. replace with sum of larger
-4. lca of bst 
+4. lca of bst
 5. print in range
 6. target sum pair in bst
 7. add node to bst

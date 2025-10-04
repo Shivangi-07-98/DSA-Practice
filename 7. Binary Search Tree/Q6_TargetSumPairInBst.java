@@ -1,7 +1,8 @@
 import java.io.*;
 import java.util.*;
 
-public class PrintInRangeQ { 
+// print all pair of nodes in a BST such that their sum is equal to a given target sum
+public class Q6_TargetSumPairInBst { 
 
   public static class Node {
     int data;
@@ -37,32 +38,44 @@ public class PrintInRangeQ {
     return node;
   }
 
-  public static void pir(Node node, int d1, int d2){
+  public static boolean find(Node node, int data){
     if(node == null){
-      return;
+      return false;
     }
-    
-    if(node.data < d1 && node.data < d2){
-      pir(node.right, d1, d2);
+
+    if(data > node.data){
+      return find(node.right, data);
     }
-    
-    else if(node.data > d1 && node.data > d2){
-      pir(node.left, d1, d2);
+    else if(data < node.data){
+      return find(node.left, data);
     }
-    
     else{
-      pir(node.left, d1, d2);
-      System.out.println(node.data);
-      pir(node.right, d1, d2);
+      return true;
     }
   }
 
+  public static void tsp(Node root, Node node, int target) {
+    if (node == null) {
+      return;
+    }
+    tsp(root, node.left, target);
+
+    int complement = target - node.data;
+
+    if (complement > node.data && find(root, complement)) {
+      System.out.println(node.data + " " + complement);
+    }
+
+    tsp(root, node.right, target);
+  }
+
   public static void main(String[] args) {
-    // int[] arr = { 10, 20, 30, 50, 60, 70, 80 }; 
-    int[] arr = { 12, 25, 37, 30, 40, 50, 60, 62, 70, 75, 87 }; 
+    int[] arr = { 10, 20, 30, 50, 60, 70, 80 }; 
     Node root = construct(arr, 0, arr.length - 1);
     // display(root);
-    pir(root, 35, 65);
+
+    tsp(root, root, 100);
+    // System.out.println(lca);
 
   }
 
