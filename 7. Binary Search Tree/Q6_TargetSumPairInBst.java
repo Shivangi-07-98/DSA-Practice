@@ -62,8 +62,14 @@ public class Q6_TargetSumPairInBst {
 
     int complement = target - node.data;
 
-    if (complement > node.data && find(root, complement)) {
-      System.out.println(node.data + " " + complement);
+    // if (complement > node.data && find(root, complement)) {
+    //   System.out.println(node.data + " " + complement);
+    // }
+
+    if (node.data < complement) {
+      if(find(root, complement) == true){
+        System.out.println(node.data + " " + complement);
+      }
     }
 
     tsp(root, node.right, target);
@@ -75,7 +81,6 @@ public class Q6_TargetSumPairInBst {
     // display(root);
 
     tsp(root, root, 100);
-    // System.out.println(lca);
 
   }
 
