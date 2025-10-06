@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class TargetSumPairAlternateApproach2Q { 
+public class Q10_TSPalternateApproach2 { 
 
   public static class Node {
     int data;

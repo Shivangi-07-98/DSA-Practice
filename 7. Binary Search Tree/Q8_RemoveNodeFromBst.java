@@ -25,12 +25,10 @@ public class Q8_RemoveNodeFromBst {
     String rcstr = node.right == null ? ".." : "" + node.right.data;
     System.out.println(lcstr + str + rcstr);
 
-    display(node.left); // will print the entire left tree
-    display(node.right); // will print the entire right tree
+    display(node.left);
+    display(node.right);
   }
 
-  // node isbst true when all to the left are smaller and all to the right are
-  // greater
   public static Node construct(int[] sarr, int lo, int hi) {
     if (lo > hi) {
       return null;

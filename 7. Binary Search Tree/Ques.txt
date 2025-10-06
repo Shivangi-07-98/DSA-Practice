@@ -6,5 +6,5 @@
 6. target sum pair in bst
 7. add node to bst
 8. remove node from bst
-9. target sum pair alternate approach
-10. 
+9. target sum pair alternate approach 1
+10. target sum pair alternate approach 2
