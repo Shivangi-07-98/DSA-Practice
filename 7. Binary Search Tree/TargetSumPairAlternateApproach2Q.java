@@ -78,6 +78,8 @@ public class TargetSumPairAlternateApproach2Q {
     }
   }
 
+  // time complexity O(n)
+  // space complexity height
   public static void tsp3(Node root, int tar) {
     Stack<IPair> ls = new Stack<>();
     IPair lrp = new IPair(root);
