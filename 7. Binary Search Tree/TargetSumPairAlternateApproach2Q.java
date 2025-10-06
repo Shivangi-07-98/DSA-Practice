@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-// print all pair of nodes in a BST such that their sum is equal to a given target sum
 public class TargetSumPairAlternateApproach2Q { 
 
   public static class Node {
@@ -20,11 +19,11 @@ public class TargetSumPairAlternateApproach2Q {
     String rcstr = node.right == null ? ".." : "" + node.right.data;
     System.out.println(lcstr + str + rcstr);
 
-    display(node.left); // will print the entire left tree
-    display(node.right); // will print the entire right tree
+    display(node.left);
+    display(node.right);
+
   }
 
-  // node isbst true when all to the left are smaller and all to the right are greater
   public static Node construct(int[] sarr, int lo, int hi){
     if(lo > hi){
       return null;
@@ -152,10 +151,8 @@ public class TargetSumPairAlternateApproach2Q {
   public static void main(String[] args) {
     int[] arr = { 10, 20, 30, 50, 60, 70, 80 }; 
     Node root = construct(arr, 0, arr.length - 1);
-    // display(root);
 
     tsp3(root, 100);
-    
   }
 
 }
