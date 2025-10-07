@@ -9,7 +9,7 @@ public class Q2_SelectionSort {
     int n = scn.nextInt(); // 5
     int[] arr = new int[n];
     for (int i = 0; i < n; i++) {
-      arr[i] = scn.nextInt();
+      arr[i] = scn.nextInt(); // 20 30 90 10 40
     }
 
     // Selection Sort: Find smallest element and put it at start by swapping,
@@ -22,10 +22,13 @@ public class Q2_SelectionSort {
         if (arr[j] < arr[minidx]) { // find smaller element
           minidx = j;
         }
+        // because i jb tk same hai tbh tk minidx j loop mai change ho chuka and agli baar changed wale se compare hoga 
+        // mai arr[i] krke min fixed krdungi fir agar min milta bhi hai toh update nhi ho payega 
         // IMPORTANT: arr[minidx] use karo, arr[i] nahi!
         // arr[i] se compare karne par last element mil jayega, smallest nahi
       }
       // swap smallest element to correct position
+      // bahar ku swap krenge kuki position toh i wali hi chaiye
       int temp = arr[i];
       arr[i] = arr[minidx];
       arr[minidx] = temp;
@@ -42,3 +45,11 @@ public class Q2_SelectionSort {
 // hai kya? agar hai toh swap
 // aage saare sort hote jayenge
 // but ek loop mai ek hi sort hoga issiliye O(n2)
+
+/*
+ques - 5 elements ke liye 0-4 
+hum 0 idx ko min maankr arrow 1-4 chlate hai and min update krte hai fir 0th position par swap krte hai
+abhi 0th position sorted hai 
+fir 1 idx ko min maankr arrow 2-4 chlayenge
+aise krte krte aage saare sort hote jayenge pehle 0 fir 1, 2, 3 4th apne aap sorted hota
+*/

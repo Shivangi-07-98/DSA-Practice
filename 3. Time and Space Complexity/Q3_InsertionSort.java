@@ -3,10 +3,10 @@ import java.util.*;
 public class Q3_InsertionSort {
   public static void main(String[] args) throws Exception {
     Scanner scn = new Scanner(System.in);
-    int n = scn.nextInt();
+    int n = scn.nextInt(); // 5
     int[] arr = new int[n];
     for (int i = 0; i < arr.length; i++) {
-      arr[i] = scn.nextInt();
+      arr[i] = scn.nextInt(); // 20 10 90 40 30
     }
 
     // Insertion Sort: Take element and insert it in correct position in sorted part
@@ -29,3 +29,10 @@ public class Q3_InsertionSort {
     }
   }
 }
+/*
+for 5 elements 0-4 
+arrow 1 se start hoga aur wo 0 ko compare krega aur swap agar chhota hai toh
+aage 0 sorted aise krte krte 0-3 sorted aur aur 4 idx bacha hai
+4 idx aage swap hoga check hone ke baad toh 3-0 ulta loop chlega aur compare 4 hoga 
+jb tk 4th idx chhota hai aage jate jayega
+ */

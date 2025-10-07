@@ -9,7 +9,7 @@ public class Q1_BubbleSort {
     int n = scn.nextInt(); // 5
     int[] arr = new int[n];
     for (int i = 0; i < arr.length; i++) {
-      arr[i] = scn.nextInt();
+      arr[i] = scn.nextInt(); // 20 30 90 40 10
     }
 
     // Bubble Sort: Compare next element and swap, largest element reaches the end of the array
@@ -30,3 +30,9 @@ public class Q1_BubbleSort {
     }
   }
 }
+// ques - arrow starting mai rahega aur apne se aage wale se compare hoga
+// aur jo chhote hai piche unko aage krna 
+// aise 0-4 (for 5 elements) ke liye arrow 3 pr rukega fir 2, 1, 0 aur aise saare elements last mai hote jayenge 
+// but ye inner loop 5 elements ke liye 4 baar chlega
+// eg- 20 30 90 40 10 ke liye 
+// 1st inner loop mai 90 piche hua then 40, 30, 20 aur last element apne aap sorted tha
